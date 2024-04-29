@@ -1,7 +1,11 @@
 name: One app Release
-#推送Tag时触发
+
+# action事件触发
 on:
-  push
+  push:
+    # push tag时触发
+    tags:
+      - "v*.*.*"
 
 jobs:
   build-mac-ios-android:

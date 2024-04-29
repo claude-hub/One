@@ -5,7 +5,7 @@ on:
   push:
     # push tag时触发
     tags:
-      - "v*.*.*"
+      - "*"
 
 jobs:
   build-mac-ios-android:

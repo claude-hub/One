@@ -1,9 +1,8 @@
 name: One app Release
 #推送Tag时触发
 on:
-  push:
-    tags:
-      - "*"
+  push
+
 jobs:
   build-mac-ios-android:
     runs-on: macos-latest

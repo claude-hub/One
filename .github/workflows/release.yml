@@ -1,3 +1,7 @@
+# 参考:
+# https://github.com/guozhigq/pilipala/blob/main/.github/workflows/release_ci.yml
+# https://github.com/xiaoyaocz/dart_simple_live/blob/master/.github/workflows/publish_app_release.yml
+
 name: One app Release
 
 # action事件触发
@@ -111,6 +115,13 @@ jobs:
           name: One-Release
           path: |
             one_app/build/one-ios-*.ipa
+
+      # 下载所有的 Artifacts
+      - name: Download Release
+        uses: actions/download-artifact@v3
+        with:
+          name: One-Release
+          path: ./One-Release
 
       # 发布Release
       - name: Upload Release

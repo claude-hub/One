@@ -13,11 +13,11 @@ jobs:
     permissions:
       contents: write
     steps:
-      #签出代码 
+      # 签出代码 
       - uses: actions/checkout@v3
         with:
           ref: main
-      #APK签名设置
+      # APK签名设置
       - name: Download Android keystore
         id: android_keystore
         uses: timheuer/base64-to-file@v1.2
@@ -30,61 +30,62 @@ jobs:
           echo "storePassword=${{ secrets.STORE_PASSWORD }}" >> one_app/android/key.properties
           echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> one_app/android/key.properties
           echo "keyAlias=${{ secrets.KEY_ALIAS }}" >> one_app/android/key.properties
-      #设置JAVA环境
+      # 设置JAVA环境
       - uses: actions/setup-java@v3
         with:
           distribution: 'zulu'
           java-version: "17"
           token: ${{ secrets.GIT_TOKEN }}
-      #设置Flutter
+      # 设置Flutter
       - name: Flutter action
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.19.x'
           cache: true 
-      #更新Flutter的packages
+      # 更新Flutter的packages
       - name: Restore packages
         run: |
           cd one_app
           flutter pub get
 
-      #获取版本号
+      # 获取版本号
       - name: Get version
         id: version
         run: echo "version=${GITHUB_REF#refs/tags/v}" >>$GITHUB_OUTPUT
 
-      #打包APK
+      # 打包APK
       - name: Build APK
         run: |
           cd one_app
           flutter build apk --release --split-per-abi
 
-      #重命名APK
+      # 重命名APK
       - name: Rename APK
         run: |
           cd one_app
           for file in build/app/outputs/flutter-apk/app-*.apk; do
             if [[ $file =~ app-(.?*)release.apk ]]; then
-              new_file_name="build/app/outputs/flutter-apk/One-${BASH_REMATCH[1]}${{ steps.version.outputs.version }}.apk"
+              new_file_name="build/app/outputs/flutter-apk/one-${BASH_REMATCH[1]}${{ steps.version.outputs.version }}.apk"
               mv "$file" "$new_file_name"
             fi
           done
 
-      #上传APK至Artifacts
+      # 上传APK至Artifacts
       - name: Upload APK to Artifacts
         uses: actions/upload-artifact@v3
         with:
+          if-no-files-found: error
           name: One-Release
           path: |
-            one_app/build/app/outputs/flutter-apk/Pili-*.apk
+            one_app/build/app/outputs/flutter-apk/one-*.apk
 
-      #打包iOS
+      # 打包iOS
       - name: Build IPA
         run: |
           cd one_app
           flutter build ios --release --no-codesign
 
-      #创建未签名ipa
+      # 创建未签名ipa
       - name: Create IPA
         run: |
           cd one_app
@@ -102,7 +103,7 @@ jobs:
             mv "$file" "$new_file_name"
           done
 
-      #上传IPA至Artifacts
+      # 上传IPA至Artifacts
       - name: Upload IPA to Artifacts
         uses: actions/upload-artifact@v3
         with:
@@ -111,13 +112,7 @@ jobs:
           path: |
             one_app/build/one-ios-*.ipa
 
-      # 下载所有的 Artifacts
-      - name: Download Release
-        uses: actions/download-artifact@v3
-        with:
-          name: One-Release
-          path: ./One-Release
-
+      # 发布Release
       - name: Upload Release
         uses: ncipollo/release-action@v1
         with:

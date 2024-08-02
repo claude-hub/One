@@ -6,13 +6,15 @@
 
 3. flutter run
 
-## 打包 android apk
+## 本地打包 android apk
 
 > cd one_app && flutter build apk --release --split-per-abi
 
-如果要跟换自己的证书，按照下面的方式执行（非必须）
+证书已存放到了项目里面，如果要更换自己的证书，按照下面的方式执行（非必须）
 
 文档: https://docs.flutter.cn/deployment/android
+
+1. 运行下面的命令生成 upload-keystore.jks
 
 macOS 或者 Linux 系统上:
 
@@ -38,14 +40,21 @@ CN=Unknown, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown是否正确?
 
 回车生成 [正在存储 xxx/upload-keystore.jks]
 
-该命令将会把 upload-keystore.jks 文件储存在你的主文件夹中
+该命令将会把 upload-keystore.jks 文件储存在你的主文件夹中。
 
-把上面生成的 文件替换掉 one_app/android/app/upload-keystore.jks
+2. 创建 key.properties 文件
 
+新建文件 one_app/android/key.properties, storePassword 和 keyPassword 为刚才输入的 密钥库口令。
+storeFile 路径为刚才生成的 upload-keystore.jks 的绝对路径。
 
-修改文件 one_app/android/key.properties, storePassword 和 keyPassword 为刚才输入的 密钥库口令
+```
+storePassword=oneapp
+keyPassword=oneapp
+keyAlias=upload
+storeFile=xxx/upload-keystore.jks
+```
 
-## Github 环境变量配置  
+## Github Actions 打包环境变量配置配置  
 
 如果要使用 github actions 打包 app，则需要配置下面的环境变量
 

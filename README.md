@@ -88,10 +88,14 @@ git tag 命令:
 
 1. 查看所有 tag 信息: git tag
 
-2. 推送某一tag到远程仓库: git push origin v0.0.1
+2. 推送某一 tag 到远程仓库: git push origin v0.0.1
 
 3. 一次推送多个标签: git push origin --tags 或者 git push --tags
 
 4. 删除标签: git tag -d v0.0.1
 
-5. 创建轻量的标签tag (快速创建 tag): git tag v0.0.1
+5. 创建轻量的标签 tag (快速创建 tag): git tag v0.0.1
+
+6. 删除所有本地 tag: git tag -l | xargs git tag -d
+
+7. 从远程拉取所有 tag: git fetch origin --prune

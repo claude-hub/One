@@ -95,14 +95,14 @@ jobs:
           cd one_app
           mkdir build/ios/iphoneos/Payload
           cp -R build/ios/iphoneos/Runner.app build/ios/iphoneos/Payload/Runner.app
-          cd build
-          zip -q -r one_ios.ipa ./ios/iphoneos/Payload
+          cd build/ios/iphoneos
+          zip -q -r one_ios.ipa Payload
 
       # 重命名 ipa
       - name: Rename IPA
         run: |
           cd one_app
-          for file in build/one_ios.ipa; do
+          for file in build/ios/iphoneos/one_ios.ipa; do
             new_file_name="build/one-ios-${{ steps.version.outputs.version }}.ipa"
             mv "$file" "$new_file_name"
           done

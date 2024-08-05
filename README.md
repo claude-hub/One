@@ -99,3 +99,13 @@ git tag 命令:
 6. 删除所有本地 tag: git tag -l | xargs git tag -d
 
 7. 从远程拉取所有 tag: git fetch origin --prune
+
+## rust_bridge
+
+1. 安装 
+
+> cargo install flutter_rust_bridge_codegen
+
+2. 代码生成
+
+> flutter_rust_bridge_codegen generate --watch

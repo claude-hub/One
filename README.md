@@ -25,7 +25,7 @@
 
 > cargo --version
 
-3. 安装 rust_bridge
+3. 安装 rust_bridge (由于不支持热更新， 暂时不集成 rust_bridge)
 
 - 安装
 

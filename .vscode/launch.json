@@ -1,0 +1,54 @@
+{
+  // 使用 IntelliSense 了解相关属性。 
+  // 悬停以查看现有属性的描述。
+  // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "one_app",
+      "cwd": "one_app",
+      "request": "launch",
+      "type": "dart"
+    },
+    {
+      "name": "one_app (profile mode)",
+      "cwd": "one_app",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile"
+    },
+    {
+      "name": "one_app (release mode)",
+      "cwd": "one_app",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release"
+    },
+    {
+      "name": "rust_builder",
+      "cwd": "one_app/rust_builder",
+      "request": "launch",
+      "type": "dart"
+    },
+    {
+      "name": "rust_builder (profile mode)",
+      "cwd": "one_app/rust_builder",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile"
+    },
+    {
+      "name": "rust_builder (release mode)",
+      "cwd": "one_app/rust_builder",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release"
+    },
+    {
+      "name": "build_tool",
+      "cwd": "one_app/rust_builder/cargokit/build_tool",
+      "request": "launch",
+      "type": "dart"
+    }
+  ]
+}

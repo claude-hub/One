@@ -1,4 +1,62 @@
-## 运行步骤
+## 一. 环境搭建
+
+1. 安装 flutter, android studio, xcode, Visual Studio Code, cocoapods
+
+- 升级 ruby
+
+  macOS ruby 默认是 2.6.10, 需要升级到 3.x 版本。
+
+  ```shell
+  brew install ruby
+  export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+  ```
+
+- 再安装 cocoapods，注意不要使用 sudo, 不然安装后找不到 pod 命令
+
+  > gem install cocoapods -V (-V 查看进度)
+
+  > pod --version 确认是否安装成功
+
+- 最终检查 flutter 环境
+
+  > flutter doctor
+
+2. 安装 rust
+
+> cargo --version
+
+3. 安装 rust_bridge
+
+- 安装
+
+  > cargo install flutter_rust_bridge_codegen
+
+- 代码生成
+
+  > flutter_rust_bridge_codegen generate --watch
+
+## 二. 运行步骤
+
+### 模拟器
+
+- 查看当前已安装模拟器
+
+> flutter emulators
+
+| Id                  | Name                | Manufacturer | Platform |
+| ------------------- | ------------------- | ------------ | -------- |
+| apple_ios_simulator | iOS Simulator       | Apple        | iOS      |
+| Medium_Phone_API_35 | Medium Phone API 35 | Generic      | Android  |
+
+- 启动模拟器
+
+> flutter emulators --launch Medium_Phone_API_35
+
+> flutter emulators --launch apple_ios_simulator
+
+IOS 模拟器: Simulator.app
+
+### 运行项目
 
 1. cd one_app
 
@@ -6,7 +64,7 @@
 
 3. flutter run
 
-## 本地打包 android apk
+## 三. 本地打包 android apk
 
 > cd one_app && flutter build apk --release --split-per-abi
 
@@ -35,8 +93,8 @@ keytool -genkey -v -keystore $env:USERPROFILE\upload-keystore.jks `
 
 在下面的提示时，输入 Y 即可
 
-CN=Unknown, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown是否正确?
-[否]:  Y
+CN=Unknown, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown 是否正确?
+[否]: Y
 
 回车生成 [正在存储 xxx/upload-keystore.jks]
 
@@ -54,7 +112,7 @@ keyAlias=upload
 storeFile=xxx/upload-keystore.jks
 ```
 
-## Github Actions 打包环境变量配置配置  
+## 四. Github Actions 打包环境变量配置配置
 
 如果要使用 github actions 打包 app，则需要配置下面的环境变量
 
@@ -66,7 +124,7 @@ storeFile=xxx/upload-keystore.jks
 | STORE_PASSWORD  | 密钥库口令                                         |
 | GIT_TOKEN       | https://github.com/settings/tokens                 |
 
-## 打包 ios ipa
+## 五. 打包 ios ipa
 
 1. flutter build ios --release --no-codesign
 
@@ -80,9 +138,9 @@ cd build/ios/iphoneos/
 zip -q -r one_ios.ipa Payload
 ```
 
-## tag 触发 Github Actions 打包
+## 六. tag 触发 Github Actions 打包
 
-> git tag v版本号
+> git tag v 版本号
 
 git tag 命令:
 
@@ -99,13 +157,3 @@ git tag 命令:
 6. 删除所有本地 tag: git tag -l | xargs git tag -d
 
 7. 从远程拉取所有 tag: git fetch origin --prune
-
-## rust_bridge
-
-1. 安装 
-
-> cargo install flutter_rust_bridge_codegen
-
-2. 代码生成
-
-> flutter_rust_bridge_codegen generate --watch

@@ -157,3 +157,11 @@ git tag 命令:
 6. 删除所有本地 tag: git tag -l | xargs git tag -d
 
 7. 从远程拉取所有 tag: git fetch origin --prune
+
+## one_uni_app
+
+> cd one_uni_app
+
+> pnpm i
+
+> npm run mp-weixin

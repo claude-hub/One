@@ -1,0 +1,20 @@
+<route lang="json5" type="page">
+{
+  style: {
+    navigationStyle: 'custom',
+    navigationBarTitleText: '我的',
+  },
+}
+</route>
+
+<template>
+  <view class="">我的</view>
+</template>
+
+<script lang="ts" setup>
+//
+</script>
+
+<style lang="scss" scoped>
+//
+</style>

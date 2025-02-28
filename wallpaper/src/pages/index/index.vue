@@ -12,6 +12,7 @@
     class="bg-white overflow-hidden pt-2 px-4"
     :style="{ marginTop: safeAreaInsets?.top + 'px' }"
   >
+    <wd-navbar title="标题"></wd-navbar>
     <view class="text-center mt-8">
       当前平台是：
       <text class="text-green-500">{{ PLATFORM.platform }}</text>

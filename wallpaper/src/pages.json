@@ -50,7 +50,6 @@
       "path": "pages/user/index",
       "type": "page",
       "style": {
-        "navigationStyle": "custom",
         "navigationBarTitleText": "我的"
       }
     }

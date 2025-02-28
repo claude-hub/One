@@ -1,7 +1,6 @@
 <route lang="json5" type="page">
 {
   style: {
-    navigationStyle: 'custom',
     navigationBarTitleText: '我的',
   },
 }

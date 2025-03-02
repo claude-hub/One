@@ -29,13 +29,19 @@ export default defineUniPages({
     list: [
       {
         iconPath: 'static/tabbar/home.png',
-        selectedIconPath: 'static/tabbar/homeHL.png',
+        selectedIconPath: 'static/tabbar/home-h.png',
         pagePath: 'pages/index/index',
         text: '首页',
       },
       {
-        iconPath: 'static/tabbar/example.png',
-        selectedIconPath: 'static/tabbar/exampleHL.png',
+        iconPath: 'static/tabbar/classify.png',
+        selectedIconPath: 'static/tabbar/classify-h.png',
+        pagePath: 'pages/classify/index',
+        text: '分类',
+      },
+      {
+        iconPath: 'static/tabbar/user.png',
+        selectedIconPath: 'static/tabbar/user-h.png',
         pagePath: 'pages/user/index',
         text: '我的',
       },

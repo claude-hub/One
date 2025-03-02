@@ -1,6 +1,8 @@
 <template>
-  <view class="tab-bar h-[3.125rem] pb-safe px-8">
-    <view class="content h-full center rounded-full">
+  <view class="fixed bottom-0 left-0 right-0 pb-safe px-8">
+    <view
+      class="h-full center rounded-full bg-green-100/60 dark:bg-white/40 backdrop-blur-2xl py-3"
+    >
       <view
         v-for="(item, index) in list"
         :key="index"
@@ -29,15 +31,21 @@ const getCurrentPath = () => {
 const list = [
   {
     iconPath: '/static/tabbar/home.png',
-    selectedIconPath: '/static/tabbar/homeHL.png',
+    selectedIconPath: '/static/tabbar/home-h.png',
     pagePath: '/pages/index/index',
-    text: '首页1',
+    text: '首页',
   },
   {
-    iconPath: '/static/tabbar/example.png',
-    selectedIconPath: '/static/tabbar/exampleHL.png',
+    iconPath: '/static/tabbar/classify.png',
+    selectedIconPath: '/static/tabbar/classify-h.png',
+    pagePath: '/pages/classify/index',
+    text: '分类',
+  },
+  {
+    iconPath: '/static/tabbar/user.png',
+    selectedIconPath: '/static/tabbar/user-h.png',
     pagePath: '/pages/user/index',
-    text: '我的2',
+    text: '我的',
   },
 ]
 
@@ -57,13 +65,3 @@ onShow(() => {
   currentPath.value = getCurrentPath()
 })
 </script>
-<style lang="scss" scoped>
-.tab-bar {
-  @apply fixed bottom-0 left-0 right-0;
-
-  .content {
-    background-color: #4c4c4c;
-    backdrop-filter: blur(10px);
-  }
-}
-</style>

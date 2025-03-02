@@ -7,13 +7,12 @@
 </route>
 
 <template>
-  <view class="">我的</view>
+  <view>我的</view>
+  <view class="i-iconamoon:category-bold"></view>
 </template>
 
 <script lang="ts" setup>
 //
 </script>
 
-<style lang="scss" scoped>
-//
-</style>
+<style lang="scss" scoped></style>

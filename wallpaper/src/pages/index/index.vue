@@ -2,31 +2,27 @@
 <route lang="json5" type="home">
 {
   style: {
-    navigationStyle: 'custom',
     navigationBarTitleText: '首页',
   },
 }
 </route>
 <template>
-  <view
-    class="bg-white overflow-hidden pt-2 px-4"
-    :style="{ marginTop: safeAreaInsets?.top + 'px' }"
-  >
-    <wd-navbar title="标题"></wd-navbar>
-    <view class="text-center mt-8">
-      当前平台是：
-      <text class="text-green-500">{{ PLATFORM.platform }}</text>
-    </view>
-  </view>
+  <div class="p-2">
+    <div class="grid grid-cols-3 gap-1">
+      <div v-for="(img, index) in data?.[0].wallpapers[0].urls" :key="index">
+        <wd-img width="100%" mode="widthFix" :src="img" class="w-full"></wd-img>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import PLATFORM from '@/utils/platform'
+import { getData, IData } from '@/service/index' // 看这里
+const { data, run } = useRequest<IData>(() => getData())
+
+run()
 
 defineOptions({
   name: 'Home',
 })
-
-// 获取屏幕边界到安全区域距离
-const { safeAreaInsets } = uni.getSystemInfoSync()
 </script>

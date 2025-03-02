@@ -2,7 +2,7 @@ import { defineUniPages } from '@uni-helper/vite-plugin-uni-pages'
 
 export default defineUniPages({
   globalStyle: {
-    navigationStyle: 'default',
+    navigationStyle: 'custom',
     navigationBarTitleText: 'wrapper',
     navigationBarBackgroundColor: '#f8f8f8',
     navigationBarTextStyle: 'black',
@@ -17,6 +17,7 @@ export default defineUniPages({
     },
   },
   tabBar: {
+    custom: true,
     color: '#999999',
     selectedColor: '#018d71',
     backgroundColor: '#F8F8F8',

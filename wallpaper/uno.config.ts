@@ -2,9 +2,9 @@
 import {
   type Preset,
   defineConfig,
-  presetUno,
   presetAttributify,
   presetIcons,
+  presetUno,
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss'
@@ -48,11 +48,48 @@ export default defineConfig({
     //   commaStyleColorFunction: true,
     // }) as Preset,
   ],
+  theme: {
+    colors: {
+      // 核心颜色
+      primary: {
+        100: 'var(--primary-100)',
+        200: 'var(--primary-200)',
+        300: 'var(--primary-300)',
+      },
+      // 强调色
+      accent: {
+        100: 'var(--accent-100)',
+        200: 'var(--accent-200)',
+        300: 'var(--accent-300)',
+      },
+      // 文字色
+      text: {
+        100: 'var(--text-100)',
+        200: 'var(--text-200)',
+        300: 'var(--text-300)',
+      },
+      // 背景色
+      bg: {
+        100: 'var(--bg-100)',
+        200: 'var(--bg-200)',
+        300: 'var(--bg-300)',
+      },
+      // 界面元素
+      surface: {
+        100: 'var(--surface-100)',
+        200: 'var(--surface-200)',
+        300: 'var(--surface-300)',
+      },
+    },
+  },
   /**
    * 自定义快捷语句
    * @see https://github.com/unocss/unocss#shortcuts
    */
-  shortcuts: [['center', 'flex justify-center items-center']],
+  shortcuts: [
+    ['center', 'flex justify-center items-center'],
+    ['center-y', 'flex items-center'],
+  ],
   transformers: [
     // 启用 @apply 功能
     transformerDirectives(),

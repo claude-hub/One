@@ -47,6 +47,13 @@
       }
     },
     {
+      "path": "pages/search/index",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "搜索"
+      }
+    },
+    {
       "path": "pages/user/index",
       "type": "page",
       "style": {

@@ -46,3 +46,9 @@ page {
 .chart-color-3 {
   fill: var(--accent-300);
 }
+
+.bg-page {
+  background:
+    linear-gradient(to bottom, transparent, #fff 400rpx),
+    linear-gradient(to right, #beecd8 20%, #f4e2d8);
+}

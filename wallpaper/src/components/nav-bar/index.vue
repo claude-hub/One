@@ -1,6 +1,6 @@
 <template>
   <view
-    class="nav-bar bg-page center-y"
+    class="bg-page center-y dark:bg-black/80 pb-2"
     :style="{ paddingTop: statusBarHeight + 'px', height: getTitleBarHeight() + 'px' }"
   >
     <view class="center-y px-4 gap-2">
@@ -32,9 +32,3 @@ import { getStatusBarHeight, getTitleBarHeight } from '@/utils'
 
 const statusBarHeight = getStatusBarHeight()
 </script>
-
-<style lang="scss" scoped>
-.nav-bar {
-  @apply sticky top-0 left-0 right-0 z-10 w-full;
-}
-</style>

@@ -1,15 +1,13 @@
 <template>
   <view class="fixed bottom-0 left-0 right-0 pb-safe px-8">
-    <view
-      class="h-full center rounded-full bg-green-100/60 dark:bg-white/40 backdrop-blur-2xl py-3"
-    >
+    <view class="h-full center rounded-full bg-green-100/60 dark:bg-black/30 backdrop-blur-lg py-3">
       <view
         v-for="(item, index) in list"
         :key="index"
         class="flex-1 flex flex-col items-center justify-center text-center"
         @click="switchTab(item.pagePath)"
       >
-        <image :src="getIconPath(item, currentPath)" class="w-8 h-8" mode="aspectFit" />
+        <image :src="getIconPath(item, currentPath)" class="w-6 h-6" mode="aspectFit" />
       </view>
     </view>
   </view>

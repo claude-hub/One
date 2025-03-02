@@ -7,7 +7,7 @@
 }
 </route>
 <template>
-  <div class="p-3">
+  <div>
     <wd-swiper
       :list="swiperList"
       autoplay
@@ -18,9 +18,9 @@
       loop
     ></wd-swiper>
 
-    <div class="mt-3 grid grid-cols-3 gap-2">
+    <div class="mt-3 grid grid-cols-3 gap-3">
       <div v-for="(img, index) in data?.[0].wallpapers[0].urls" :key="index">
-        <wd-img width="100%" mode="widthFix" :src="img" :radius="8" class="w-full"></wd-img>
+        <wd-img width="100%" mode="widthFix" :src="img" :radius="12" class="w-full"></wd-img>
       </div>
     </div>
   </div>

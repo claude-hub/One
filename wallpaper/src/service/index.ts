@@ -1,7 +1,52 @@
-export const getHomeData = () => {
+interface Banner {
+  url: string
+  path: string
+}
+
+interface Album {
+  name: string
+  desc: string
+  cover: string
+  path: string
+}
+
+interface Albums {
+  name: string
+  desc: string
+  path: string
+  album: Album[]
+}
+
+interface Category {
+  name: string
+  desc: string
+  path: string
+  images: string[]
+}
+
+interface MoreCategory {
+  name: string
+  data: string
+}
+
+interface More {
+  name: string
+  desc: string
+  path: string
+  categories: MoreCategory[]
+}
+
+export interface HomeData {
+  banners: Banner[]
+  albums: Albums
+  categories: Category[]
+  more: More
+}
+
+export const getHomeData = (): Promise<IResData<HomeData>> => {
   return new Promise((resolve) => {
     resolve({
-      code: '200',
+      code: 200,
       data: {
         banners: [
           {
@@ -17,11 +62,11 @@ export const getHomeData = () => {
             path: '/pages/classify',
           },
         ],
-        album: {
+        albums: {
           name: '壁纸专辑',
           desc: 'Wallpaper album',
           path: '/pages/classify',
-          category: [
+          album: [
             {
               name: '哆啦A梦',
               desc: '',
@@ -38,7 +83,7 @@ export const getHomeData = () => {
             },
           ],
         },
-        category: [
+        categories: [
           {
             name: '电脑平板',
             desc: '',
@@ -60,11 +105,11 @@ export const getHomeData = () => {
             ],
           },
         ],
-        others: {
-          name: '壁纸专辑',
+        more: {
+          name: 'LATEST',
           desc: 'Wallpaper album',
           path: '/pages/classify',
-          category: [
+          categories: [
             {
               name: '最新',
               data: '/latest.json',

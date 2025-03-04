@@ -50,9 +50,9 @@
 import dayjs from 'dayjs'
 import { ref } from 'vue'
 
-import { getHomeData } from '@/service'
+import { getHomeData, HomeData } from '@/service'
 
-const { loading, error, data, run } = useRequest(() => getHomeData())
+const { loading, error, data, run } = useRequest<HomeData>(() => getHomeData())
 run()
 
 const current = ref<number>(0)

@@ -21,7 +21,7 @@ import { getNavBarHeight } from '@/utils'
 import { useThemeStore } from '@/store'
 import { storeToRefs } from 'pinia'
 
-const { safeAreaInsets } = uni.getSystemInfoSync()
+const { safeAreaInsets } = uni.getWindowInfo()
 const { bottom } = safeAreaInsets
 
 const themeStore = useThemeStore()

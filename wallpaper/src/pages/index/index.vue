@@ -9,41 +9,60 @@
 <template>
   <div>
     <wd-swiper
-      :list="swiperList"
+      :list="banners"
       autoplay
       v-model:current="current"
       @click="handleClick"
-      @change="onChange"
       :indicator="{ type: 'dots-bar' }"
       loop
-    ></wd-swiper>
+    />
 
-    <div class="mt-3 grid grid-cols-3 gap-3">
-      <div v-for="(img, index) in data?.[0].wallpapers[0].urls" :key="index">
+    <!-- <common-title>
+      <template #name>每日推荐</template>
+      <template #custom>
+        <view class="date">
+          <view class="center gap-1">
+            <wd-icon name="calendar" size="1.25rem" color="var(--primary-100)"></wd-icon>
+            <view>
+              {{ now }}
+            </view>
+          </view>
+        </view>
+      </template>
+    </common-title>
+    <scroll-view scroll-x class="px-3">
+      <view class="flex items-center gap-3">
+        <view v-for="item in data?.[0]?.wallpapers?.[0]?.urls" :key="item" @click="goPreview(item)">
+          <wd-img width="8rem" mode="widthFix" :src="item" :radius="12"></wd-img>
+        </view>
+      </view>
+    </scroll-view>
+
+    <div class="mt-3 grid grid-cols-3 gap-3 px-3">
+      <div v-for="(img, index) in data?.[0]?.wallpapers?.[0]?.urls" :key="index">
         <wd-img width="100%" mode="widthFix" :src="img" :radius="12" class="w-full"></wd-img>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script lang="ts" setup>
-import { getData, IData } from '@/service/index'
-const { data, run } = useRequest<IData>(() => getData())
+import dayjs from 'dayjs'
+import { ref } from 'vue'
+
+import { getHomeData } from '@/service'
+
+const { loading, error, data, run } = useRequest(() => getHomeData())
 run()
 
 const current = ref<number>(0)
+const now = dayjs().format('MM.DD')
 
-const swiperList = ref([
-  'https://registry.npmmirror.com/wot-design-uni-assets/*/files/redpanda.jpg',
-  'https://registry.npmmirror.com/wot-design-uni-assets/*/files/capybara.jpg',
-  'https://registry.npmmirror.com/wot-design-uni-assets/*/files/panda.jpg',
-  'https://registry.npmmirror.com/wot-design-uni-assets/*/files/moon.jpg',
-  'https://registry.npmmirror.com/wot-design-uni-assets/*/files/meng.jpg',
-])
+const banners = computed(() => {
+  return data.value?.banners.map((item) => item.url) || []
+})
+
 function handleClick(e) {
-  console.log(e)
-}
-function onChange(e) {
   console.log(e)
 }
 

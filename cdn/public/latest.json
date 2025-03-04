@@ -1,0 +1,8 @@
+{
+  "code": "200",
+  "data": {
+    "base": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper",
+    "list": ["/202503022240000.json", "/202503022240001.json"]
+  },
+  "msg": "success"
+}

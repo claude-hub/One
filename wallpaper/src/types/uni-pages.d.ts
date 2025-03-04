@@ -6,6 +6,7 @@
 interface NavigateToOptions {
   url: "/pages/index/index" |
        "/pages/classify/index" |
+       "/pages/preview/index" |
        "/pages/search/index" |
        "/pages/user/index";
 }

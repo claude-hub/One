@@ -1,39 +1,34 @@
-export interface Banner {
+interface Banner {
   value: string
   path: string
   type?: string
   poster?: string
 }
 
-export interface Image {
-  name: string
-  desc: string
-  src: string
-  path: string
-  count: number
-}
-
-export interface Category {
-  name: string
-  desc: string
-  path: string
-  pathType: string
+interface Category extends NavigationTitle {
   width: number
   height: number
-  images: Image[]
+  images: {
+    name: string
+    desc: string
+    src: string
+    path: string
+    count: number
+  }[]
 }
 
-export interface Type {
-  name: string
-  data: string
-}
-
-export interface More {
+export interface NavigationTitle {
   name: string
   desc: string
   path: string
   pathType: string
-  categories: Type[]
+}
+
+interface More extends NavigationTitle {
+  categories: {
+    name: string
+    data: string
+  }[]
 }
 
 export interface HomeData {

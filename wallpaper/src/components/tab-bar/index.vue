@@ -1,10 +1,10 @@
 <template>
-  <view class="fixed bottom-0 left-0 right-0 pb-safe px-8">
-    <!-- <view class="h-12 flex-center rounded-full bg-green-100/60 dark:bg-black/30 backdrop-blur-lg"> -->
-    <view
+  <div class="fixed bottom-0 left-0 right-0 pb-safe px-8">
+    <!-- <div class="h-12 flex-center rounded-full bg-green-100/60 dark:bg-black/30 backdrop-blur-lg"> -->
+    <div
       class="tabbar h-12 flex-center rounded-full bg-green-100/60 dark:bg-white/22 backdrop-blur-md"
     >
-      <view
+      <div
         v-for="(item, index) in TABBAR"
         :key="index"
         class="flex-1 flex flex-col items-center justify-center text-center"
@@ -13,12 +13,12 @@
         <image
           :src="getIconPath(item, currentPath)"
           class="w-7 h-7"
-          :class="{ 'scale-110': currentPath === item.pagePath }"
+          :class="{ 'scale-115': currentPath === item.pagePath }"
           mode="aspectFit"
         />
-      </view>
-    </view>
-  </view>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>

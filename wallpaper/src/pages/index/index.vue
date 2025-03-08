@@ -25,24 +25,11 @@
     />
 
     <div v-for="(item, index) in data?.categories" :key="index">
-      <div class="flex-between items-start pt-5 pb-3">
-        <div>
-          <div class="text-3xl font-medium title">{{ item.name }}</div>
-          <div class="text-sm">{{ item.desc }}</div>
-        </div>
-        <navigator
-          :url="item.path"
-          :open-type="item.pathType"
-          class="flex-center gap-1 text-xs bg-white/14.5 text-gray-500 rounded-8 px-3 py-2 uppercase"
-        >
-          <div>more</div>
-          <wd-icon name="chevron-right" size="16px"></wd-icon>
-        </navigator>
-      </div>
+      <common-title :nav="item" />
 
       <scroll-view scroll-x>
-        <div class="flex items-center gap-3">
-          <div v-for="image in item?.images" :key="image.src" @click="goPreview(image.path)">
+        <div class="flex items-center gap-3 text-white">
+          <div v-for="image in item.images" :key="image.src" @click="goPreview(image.path)">
             <div class="relative">
               <wd-img
                 :width="item.width"
@@ -53,7 +40,7 @@
               ></wd-img>
               <div class="absolute font-600 top-3 right-3" v-if="image.count">
                 <div
-                  class="aspect-square flex-center border-2 border-solid border-amber rounded-full w-7 h-7"
+                  class="aspect-square flex-center border-2 border-solid border-amber rounded-full w-6 h-6"
                 >
                   {{ image.count }}
                 </div>
@@ -70,20 +57,7 @@
       </scroll-view>
     </div>
 
-    <div class="flex-between items-start pt-5 pb-3" v-if="data?.more?.name">
-      <div>
-        <div class="text-3xl font-medium title">{{ data.more.name }}</div>
-        <div class="text-sm">{{ data.more.desc }}</div>
-      </div>
-      <navigator
-        :url="data.more.path"
-        :open-type="data.more.pathType"
-        class="flex-center gap-1 text-xs bg-white/14.5 text-gray-500 rounded-8 px-3 py-2 uppercase"
-      >
-        <div>more</div>
-        <wd-icon name="chevron-right" size="16px"></wd-icon>
-      </navigator>
-    </div>
+    <common-title v-if="data?.more" :nav="data?.more" />
 
     <scroll-view
       :scroll-x="true"
@@ -94,8 +68,11 @@
       <div class="flex-y gap-4">
         <template v-for="item in data?.more?.categories" :key="item.name">
           <div
-            class="flex-auto px-4 py-1 bg-[#1d1d1d] rounded-full text-sm ws-nowrap"
-            :class="{ 'bg-[#50AA46]': currentType === item.name }"
+            class="flex-auto px-4 py-1 rounded-full text-sm ws-nowrap"
+            :class="{
+              'text-gray-500 bg-gray-100 dark:(bg-[#1d1d1d] text-white)': currentType !== item.name,
+              'text-white bg-[#50AA46]': currentType === item.name,
+            }"
             :id="`type-${item.name}`"
             @click="handleSwitchTag(item.name)"
           >
@@ -105,39 +82,67 @@
       </div>
     </scroll-view>
 
-    <div class="mt-3 grid grid-cols-3 gap-3 px-3">
+    <div class="mt-3 grid grid-cols-3 gap-3 px-3" v-if="images.length">
       <div v-for="(img, index) in images" :key="index">
         <wd-img width="100%" mode="widthFix" :src="img" :radius="12" class="w-full"></wd-img>
       </div>
     </div>
+
+    <wd-loadmore
+      :state="state"
+      @reload="loadAgain"
+      finished-text="没有更多了"
+      :custom-class="loadMoreClass"
+    />
   </div>
 </template>
 
 <script lang="ts" setup>
+import CommonTitle from '@/components/common-title/index.vue'
 import { getDailyImages, getHomeData, getTagPaths } from '@/service'
+import { useThemeStore } from '@/store'
 import { HomeData } from '@/types'
 import { goPreview } from '@/utils'
-import { onReachBottom } from '@dcloudio/uni-app'
-import { ref } from 'vue'
+import { onLoad, onReachBottom } from '@dcloudio/uni-app'
+import { storeToRefs } from 'pinia'
+import { computed, ref, watch } from 'vue'
 
-const { data, error } = useRequest<HomeData>(() => getHomeData(), {
-  immediate: true,
+const themeStore = useThemeStore()
+const { isDark } = storeToRefs(themeStore)
+
+const { data, error, run } = useRequest<HomeData>(() => getHomeData())
+
+const loadMoreClass = computed(() => {
+  return {
+    darkMore: isDark.value,
+  }
 })
-// 当前选择的类型名称
+
+const init = async () => {
+  try {
+    uni.showLoading({ title: '加载中...', mask: true })
+    await run()
+  } finally {
+    uni.hideLoading()
+  }
+}
+
+onLoad(() => {
+  init()
+})
+
 const currentType = ref('')
-// 当前标签下的图片
 const images = ref<string[]>([])
-// 当前标签下的。图片 url 列表
 const paths = ref<string[]>([])
-// 当前的轮播图
 const currentSwiper = ref<number>(0)
+const state = ref<string>('')
+const currentPath = ref('')
 
 watch(
   () => data.value,
   async (newVal) => {
-    currentType.value = newVal?.more.categories[0].name || ''
-
-    // 首页有数据后，才请求标签列表
+    if (!newVal?.more?.categories?.length) return
+    currentType.value = newVal.more.categories[0].name || ''
     const { data } = await getTagPaths()
     paths.value = data
   },
@@ -151,30 +156,56 @@ const reload = () => {
 }
 
 const handleSwitchTag = async (tag: string) => {
-  uni.showLoading({ title: '加载中...' })
+  try {
+    uni.showLoading({ title: '加载中...' })
+    currentType.value = tag
+    const path = data.value?.more.categories.find((item) => item.name === tag)?.data || ''
+    const { data: tagData } = await getTagPaths(path)
+    paths.value = tagData
+    await getCurrentTagImages(true)
+  } catch (error) {
+    uni.showToast({ title: '请重试', icon: 'none' })
+  } finally {
+    uni.hideLoading()
+  }
+}
 
-  currentType.value = tag
-  const path = data.value?.more.categories.find((item) => item.name === tag)?.data || ''
-  const { data: tagData } = await getTagPaths(path)
-  paths.value = tagData
-  getCurrentTagImages(true)
+const loadAgain = async () => {
+  try {
+    state.value = 'loading'
+    const { data } = await getDailyImages(currentPath.value)
+    images.value = images.value.concat(data.images)
+  } catch (error) {
+    state.value = 'error'
+  }
 }
 
 const getCurrentTagImages = async (isCover = false) => {
-  const path = paths.value.shift()
-  if (path) {
-    const { data } = await getDailyImages(path)
-    if (isCover) {
-      images.value = data.images
-    } else {
-      images.value = images.value.concat(data.images)
+  if (state.value === 'error') return
+  state.value = 'loading'
+  try {
+    const path = paths.value.shift()
+    if (path) {
+      currentPath.value = path
+      const { data } = await getDailyImages(path)
+      if (isCover) {
+        images.value = data.images
+      } else {
+        images.value = images.value.concat(data.images)
+      }
     }
-  }
 
-  uni.hideLoading()
+    if (paths.value.length === 0) {
+      state.value = 'finished'
+    }
+  } catch (error) {
+    state.value = 'error'
+  } finally {
+    uni.hideLoading()
+  }
 }
 
-onReachBottom(async () => {
+onReachBottom(() => {
   getCurrentTagImages()
 })
 
@@ -192,3 +223,10 @@ defineOptions({
   name: 'Home',
 })
 </script>
+
+<style lang="scss" scoped>
+:deep(.darkMore) {
+  --wot-loadmore-color: #fff;
+  --wot-divider-color: #fff;
+}
+</style>

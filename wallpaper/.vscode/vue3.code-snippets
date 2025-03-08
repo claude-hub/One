@@ -12,7 +12,7 @@
       "}",
       "</route>\n",
       "<template>",
-      "  <view class=\"\">$2</view>",
+      "  <div class=\"\">$2</div>",
       "</template>\n",
       "<script lang=\"ts\" setup>",
       "//$3",
@@ -35,6 +35,6 @@
   "Print unibest template": {
     "scope": "vue",
     "prefix": "te",
-    "body": ["<template>", "  <view class=\"\">$1</view>", "</template>\n"],
+    "body": ["<template>", "  <div class=\"\">$1</div>", "</template>\n"],
   },
 }

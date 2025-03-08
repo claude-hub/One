@@ -1,29 +1,29 @@
 <template>
-  <view
+  <div
     class="bg-page flex-y dark:bg-black/80 pb-2"
     :style="{ paddingTop: statusBarHeight + 'px', height: getTitleBarHeight() + 'px' }"
   >
-    <view class="flex-y px-4 gap-2">
-      <image class="w-8 h-8" src="/static/logo.svg" mode="aspectFit" />
-      <view class="mx-4">
-        <navigator url="/pages/search/index">
-          <view
-            class="flex items-center rounded-full px-3 h-8 border border-solid border-black/20 dark:(border-white/10 bg-[#181818])"
+    <div class="flex-y px-4 gap-2">
+      <wd-img :width="32" :height="32" class="w-8 h-8" src="/static/logo.svg" mode="aspectFit" />
+      <div class="mx-4">
+        <navigator url="/pages/search/index" open-type="switchTab">
+          <div
+            class="nav-search h-8 flex-center px-3 rounded-full w-20 border border-solid border-black/20 dark:(border-white/10 bg-[#181818])"
           >
-            <wd-icon name="search" size=".875rem" color="var(--text-300)"></wd-icon>
-            <input
-              class="w-20 ml-2 text-sm"
+            <wd-input
               disabled
-              type="text"
+              prefix-icon="search"
+              inputmode="none"
               placeholder="搜索"
-              placeholder-class="text-text-300"
+              size="small"
+              :no-border="true"
             />
-          </view>
+          </div>
         </navigator>
-      </view>
+      </div>
       <theme-switch />
-    </view>
-  </view>
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -32,3 +32,9 @@ import { getStatusBarHeight, getTitleBarHeight } from '@/utils'
 
 const statusBarHeight = getStatusBarHeight()
 </script>
+
+<style lang="scss" scoped>
+:deep(.nav-search) {
+  --wot-input-bg: transparent;
+}
+</style>

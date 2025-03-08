@@ -1,7 +1,7 @@
 <template>
-  <view @click="themeStore.toggleTheme">
-    <view class="i-carbon-sun dark:i-carbon-moon text-2xl bg-black/70 dark:bg-text-300"></view>
-  </view>
+  <div @click="themeStore.toggleTheme">
+    <div class="i-carbon-sun dark:i-carbon-moon text-2xl bg-gray-500 dark:bg-white/50"></div>
+  </div>
 </template>
 
 <script setup lang="ts">

@@ -7,8 +7,8 @@
 </route>
 
 <template>
-  <view>搜索</view>
-  <view class="i-iconamoon:category-bold"></view>
+  <div>搜索</div>
+  <div class="i-iconamoon:category-bold"></div>
 </template>
 
 <script lang="ts" setup>

@@ -7,8 +7,8 @@
 </route>
 
 <template>
-  <view>我的</view>
-  <view class="i-iconamoon:category-bold"></view>
+  <div>我的</div>
+  <div class="i-iconamoon:category-bold"></div>
 </template>
 
 <script lang="ts" setup>

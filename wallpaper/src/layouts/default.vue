@@ -1,6 +1,6 @@
 <template>
   <div :class="{ dark: isDark }">
-    <div class="flex flex-col min-h-screen bg-bg-100 text-text-100">
+    <div class="flex flex-col min-h-screen bg-bg-100 text-black/85 dark:text-white/90">
       <div class="sticky top-0 left-0 right-0 z-10 w-full">
         <nav-bar />
       </div>

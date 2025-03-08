@@ -13,7 +13,7 @@ onHide(() => {
 })
 </script>
 
-<style>
+<!-- <style>
 .title {
   font-family: 'Ma Shan Zheng', sans-serif;
 }
@@ -24,4 +24,4 @@ onHide(() => {
     format('woff2');
   font-display: block;
 }
-</style>
+</style> -->

@@ -6,7 +6,7 @@
       </div>
 
       <div class="flex-1 bg-page flex flex-col" :style="style">
-        <div class="py-2 px-3 flex-1 flex flex-col"><slot /></div>
+        <div class="py-4 px-3 flex-1 flex flex-col"><slot /></div>
       </div>
       <tab-bar />
     </div>

@@ -82,8 +82,8 @@
       </div>
     </scroll-view>
 
-    <div class="mt-3 grid grid-cols-3 gap-3 px-3" v-if="images.length">
-      <div v-for="(img, index) in images" :key="index">
+    <div class="mt-3 grid grid-cols-2 gap-3 px-3" v-if="images.length">
+      <div v-for="(img, index) in images" :key="index" @click="goPreview(img)">
         <wd-img width="100%" mode="widthFix" :src="img" :radius="12" class="w-full"></wd-img>
       </div>
     </div>

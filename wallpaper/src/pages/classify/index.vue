@@ -1,13 +1,13 @@
 <route lang="json5" type="page">
 {
   style: {
-    navigationBarTitleText: '搜索',
+    navigationBarTitleText: '分类',
   },
 }
 </route>
 
 <template>
-  <div>搜索</div>
+  <div>分类</div>
   <div class="i-iconamoon:category-bold"></div>
 </template>
 

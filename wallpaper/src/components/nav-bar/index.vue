@@ -8,7 +8,7 @@
       <div class="mx-4">
         <navigator url="/pages/search/index" open-type="switchTab">
           <div
-            class="nav-search h-8 flex-center px-3 rounded-full w-20 border border-solid border-black/20 dark:(border-white/10 bg-[#181818])"
+            class="nav-search h-8 flex-center px-3 rounded-full w-20 border border-solid border-black/10 dark:(border-translate bg-white/9.4)"
           >
             <wd-input
               disabled

@@ -64,14 +64,14 @@
       "path": "pages/classify/index",
       "type": "page",
       "style": {
-        "navigationBarTitleText": "搜索"
+        "navigationBarTitleText": "分类"
       }
     },
     {
       "path": "pages/preview/index",
       "type": "page",
       "style": {
-        "navigationBarTitleText": "搜索"
+        "navigationBarTitleText": "预览"
       }
     },
     {

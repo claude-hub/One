@@ -2,6 +2,23 @@
 import { onHide, onLaunch, onShow } from '@dcloudio/uni-app'
 import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only'
 
+import { useThemeStore } from '@/store'
+import { storeToRefs } from 'pinia'
+
+const themeStore = useThemeStore()
+const { isDark } = storeToRefs(themeStore)
+
+watch(
+  () => isDark.value,
+  (newVal) => {
+    uni.setNavigationBarColor({
+      frontColor: newVal ? '#ffffff' : '#000000',
+      backgroundColor: 'transparent',
+    })
+  },
+  { immediate: true },
+)
+
 onLaunch(() => {
   console.log('App Launch')
 })

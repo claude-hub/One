@@ -1,6 +1,7 @@
 import { defineUniPages } from '@uni-helper/vite-plugin-uni-pages'
 
 export default defineUniPages({
+  lazyCodeLoading: 'requiredComponents',
   globalStyle: {
     navigationStyle: 'custom',
     navigationBarTitleText: 'wrapper',

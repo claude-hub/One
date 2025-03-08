@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-between items-start pt-5 pb-3">
+  <div class="flex-between items-start pt-10 pb-3">
     <div>
       <div class="text-2xl font-medium title">{{ nav.name }}</div>
       <div class="text-sm">{{ nav.desc }}</div>

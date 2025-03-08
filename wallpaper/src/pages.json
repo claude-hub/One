@@ -1,4 +1,5 @@
 {
+  "lazyCodeLoading": "requiredComponents",
   "globalStyle": {
     "navigationStyle": "custom",
     "navigationBarTitleText": "wrapper",

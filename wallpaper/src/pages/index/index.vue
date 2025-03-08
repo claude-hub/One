@@ -46,9 +46,9 @@
                 </div>
               </div>
               <div class="absolute bottom-3 left-0 right-0 px-3" v-if="image.name">
-                <div class="px-5 py-3 bg-white/22 rounded-4 backdrop-blur-sm">
+                <div class="h-11 px-5 py-3 bg-white/22 rounded-4 backdrop-blur-sm">
                   <div class="text-sm">{{ image.name }}</div>
-                  <div class="text-xs text-gray-300 mt-2">{{ image.desc }}</div>
+                  <div class="text-xs text-gray-300 mt-2" v-if="image.desc">{{ image.desc }}</div>
                 </div>
               </div>
             </div>

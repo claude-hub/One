@@ -1,0 +1,138 @@
+{
+  "code": 200,
+  "data": {
+    "banners": [
+      {
+        "value": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112127.png"
+      },
+      {
+        "value": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112139.png"
+      },
+      {
+        "value": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112134.png"
+      },
+      {
+        "value": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112140.png"
+      }
+    ],
+    "categories": [
+      {
+        "name": "壁纸专辑",
+        "desc": "Wallpaper album",
+        "path": "/pages/classify/index",
+        "pathType": "switchTab",
+        "width": 220,
+        "height": 320,
+        "images": [
+          {
+            "name": "天际掠影",
+            "desc": "天际航迹 · 纵览山河万象",
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503072250108.jpg",
+            "path": "/pages/classify",
+            "count": 9
+          },
+          {
+            "name": "哪吒之魔童闹海",
+            "desc": "",
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503011016176.png",
+            "path": "/pages/classify",
+            "count": 20
+          }
+        ]
+      },
+      {
+        "name": "电脑壁纸",
+        "desc": "Wallpaper album",
+        "path": "/pages/classify/index",
+        "pathType": "switchTab",
+        "width": 320,
+        "height": 180,
+        "images": [
+          {
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112138.png"
+          },
+          {
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112136.png"
+          },
+          {
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112127.png"
+          },
+          {
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112128.png"
+          },
+          {
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112129.png"
+          },
+          {
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112130.png"
+          },
+          {
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112131.png"
+          },
+          {
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112132.png"
+          },
+          {
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112133.png"
+          },
+          {
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112134.png"
+          },
+          {
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112135.png"
+          },
+          {
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112137.png"
+          },
+          {
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112139.png"
+          },
+          {
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112140.png"
+          },
+          {
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112141.png"
+          }
+        ]
+      },
+      {
+        "name": "精选头像",
+        "desc": "selected avatars",
+        "path": "/pages/classify/index",
+        "pathType": "switchTab",
+        "width": 130,
+        "height": 130,
+        "images": [
+          {
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080052050.JPG"
+          },
+          {
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080052187.JPG"
+          },
+          {
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080053234.JPG"
+          },
+          {
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080053770.JPG"
+          }
+        ]
+      }
+    ],
+    "more": {
+      "name": "热门壁纸",
+      "desc": "湖源壁纸艺术脉络 探寻美学无尽奥秘",
+      "path": "/pages/classify/index",
+      "pathType": "switchTab",
+      "categories": [
+        { "name": "最新", "data": "/tag/latest.json" },
+        { "name": "热门", "data": "/tag/hot.json" },
+        { "name": "简约", "data": "/tag/latest.json" },
+        { "name": "动漫", "data": "/tag/latest.json" },
+        { "name": "宠物", "data": "/tag/latest.json" },
+        { "name": "建筑", "data": "/tag/latest.json" },
+        { "name": "风景", "data": "/tag/latest.json" }
+      ]
+    }
+  },
+  "msg": "success"
+}

@@ -3,16 +3,23 @@
   "data": {
     "banners": [
       {
-        "url": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503022240002.jpg",
+        "value": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503022240002.jpg",
         "path": "/pages/classify/index"
       },
       {
-        "url": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503022240001.jpg",
+        "value": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503022240001.jpg",
         "path": "/pages/classify/index"
       },
       {
-        "url": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503022240000.jpg",
-        "path": "/pages/classify/index"
+        "value": "https://unpkg.com/wot-design-uni-assets@1.0.3/VID_115503.mp4",
+        "path": "/pages/classify/index",
+        "type": "video"
+      },
+      {
+        "value": "https://unpkg.com/wot-design-uni-assets@1.0.3/VID_115503.mp4",
+        "path": "/pages/classify/index",
+        "poster": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503022240001.jpg",
+        "type": "video"
       }
     ],
     "categories": [

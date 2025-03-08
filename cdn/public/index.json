@@ -18,7 +18,7 @@
     "categories": [
       {
         "name": "壁纸专辑",
-        "desc": "Wallpaper album",
+        "desc": "wallpaper album",
         "path": "/pages/classify/index",
         "pathType": "switchTab",
         "width": 240,
@@ -41,8 +41,8 @@
         ]
       },
       {
-        "name": "电脑壁纸",
-        "desc": "Wallpaper album",
+        "name": "电脑平板",
+        "desc": "computer tablet",
         "path": "/pages/classify/index",
         "pathType": "switchTab",
         "width": 320,
@@ -120,7 +120,7 @@
     ],
     "more": {
       "name": "热门壁纸",
-      "desc": "湖源壁纸艺术脉络 探寻美学无尽奥秘",
+      "desc": "溯源壁纸艺术脉络 探寻美学无尽奥秘",
       "path": "/pages/classify/index",
       "pathType": "switchTab",
       "categories": [

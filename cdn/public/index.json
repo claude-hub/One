@@ -124,13 +124,13 @@
       "path": "/pages/classify/index",
       "pathType": "switchTab",
       "categories": [
-        { "name": "最新", "data": "/tag/latest.json" },
-        { "name": "热门", "data": "/tag/hot.json" },
-        { "name": "简约", "data": "/tag/latest.json" },
-        { "name": "动漫", "data": "/tag/latest.json" },
-        { "name": "宠物", "data": "/tag/latest.json" },
-        { "name": "建筑", "data": "/tag/latest.json" },
-        { "name": "风景", "data": "/tag/latest.json" }
+        { "name": "最新", "path": "/data/categories/latest/index.json" },
+        { "name": "热门", "path": "/data/categories/hot.json" },
+        { "name": "简约", "path": "/data/categories/latest.json" },
+        { "name": "动漫", "path": "/data/categories/latest.json" },
+        { "name": "宠物", "path": "/data/categories/latest.json" },
+        { "name": "建筑", "path": "/data/categories/latest.json" },
+        { "name": "风景", "path": "/data/categories/latest.json" }
       ]
     }
   },

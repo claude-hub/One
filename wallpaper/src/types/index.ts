@@ -27,7 +27,7 @@ export interface NavigationTitle {
 interface More extends NavigationTitle {
   categories: {
     name: string
-    data: string
+    path: string
   }[]
 }
 
@@ -35,9 +35,4 @@ export interface HomeData {
   banners: Banner[]
   categories: Category[]
   more: More
-}
-
-export interface ImagesDetail {
-  title: string
-  images: string[]
 }

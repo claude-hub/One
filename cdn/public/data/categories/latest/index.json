@@ -1,0 +1,10 @@
+{
+  "code": 200,
+  "msg": "success",
+  "data": [
+    "/data/categories/latest/1.json",
+    "/data/categories/latest/2.json",
+    "/data/categories/latest/3.json",
+    "/data/categories/latest/4.json"
+  ]
+}

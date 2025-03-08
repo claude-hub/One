@@ -82,9 +82,17 @@
       </div>
     </scroll-view>
 
-    <div class="mt-3 grid grid-cols-2 gap-3 px-3" v-if="images.length">
+    <div class="mt-6 grid grid-cols-2 gap-3" v-if="images.length">
       <div v-for="(img, index) in images" :key="index" @click="goPreview(img)">
-        <wd-img width="100%" mode="widthFix" :src="img" :radius="12" class="w-full"></wd-img>
+        <wd-img
+          lazy-load
+          width="100%"
+          :height="366"
+          mode="aspectFill"
+          :src="img"
+          :radius="12"
+          class="w-full"
+        ></wd-img>
       </div>
     </div>
 
@@ -105,7 +113,7 @@ import { HomeData } from '@/types'
 import { goPreview } from '@/utils'
 import { onLoad, onReachBottom } from '@dcloudio/uni-app'
 import { storeToRefs } from 'pinia'
-import { computed, ref, watch } from 'vue'
+import { computed, ref } from 'vue'
 
 const themeStore = useThemeStore()
 const { isDark } = storeToRefs(themeStore)
@@ -122,6 +130,12 @@ const init = async () => {
   try {
     uni.showLoading({ title: '加载中...', mask: true })
     await run()
+
+    if (!data.value?.more?.categories?.length) return
+    const { name, path } = data.value.more.categories[0]
+    currentType.value = name || ''
+    const { data: latestData } = await getTagPaths(path)
+    paths.value = latestData
   } finally {
     uni.hideLoading()
   }
@@ -138,17 +152,6 @@ const currentSwiper = ref<number>(0)
 const state = ref<string>('')
 const currentPath = ref('')
 
-watch(
-  () => data.value,
-  async (newVal) => {
-    if (!newVal?.more?.categories?.length) return
-    currentType.value = newVal.more.categories[0].name || ''
-    const { data } = await getTagPaths()
-    paths.value = data
-  },
-  { once: true },
-)
-
 const reload = () => {
   uni.reLaunch({
     url: '/pages/index/index',
@@ -159,7 +162,7 @@ const handleSwitchTag = async (tag: string) => {
   try {
     uni.showLoading({ title: '加载中...' })
     currentType.value = tag
-    const path = data.value?.more.categories.find((item) => item.name === tag)?.data || ''
+    const path = data.value?.more.categories.find((item) => item.name === tag)?.path || ''
     const { data: tagData } = await getTagPaths(path)
     paths.value = tagData
     await getCurrentTagImages(true)
@@ -174,14 +177,14 @@ const loadAgain = async () => {
   try {
     state.value = 'loading'
     const { data } = await getDailyImages(currentPath.value)
-    images.value = images.value.concat(data.images)
+    images.value = images.value.concat(data)
   } catch (error) {
     state.value = 'error'
   }
 }
 
 const getCurrentTagImages = async (isCover = false) => {
-  if (state.value === 'error') return
+  if (state.value === 'error' || paths.value.length <= 0) return
   state.value = 'loading'
   try {
     const path = paths.value.shift()
@@ -189,13 +192,12 @@ const getCurrentTagImages = async (isCover = false) => {
       currentPath.value = path
       const { data } = await getDailyImages(path)
       if (isCover) {
-        images.value = data.images
+        images.value = data
       } else {
-        images.value = images.value.concat(data.images)
+        images.value = images.value.concat(data)
       }
     }
-
-    if (paths.value.length === 0) {
+    if (paths.value.length <= 0) {
       state.value = 'finished'
     }
   } catch (error) {

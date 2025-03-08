@@ -3,16 +3,16 @@
   "data": {
     "banners": [
       {
-        "value": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112127.png"
-      },
-      {
-        "value": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112139.png"
+        "value": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112141.png"
       },
       {
         "value": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112134.png"
       },
       {
-        "value": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112140.png"
+        "value": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112127.png"
+      },
+      {
+        "value": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112139.png"
       }
     ],
     "categories": [
@@ -21,8 +21,8 @@
         "desc": "Wallpaper album",
         "path": "/pages/classify/index",
         "pathType": "switchTab",
-        "width": 220,
-        "height": 320,
+        "width": 240,
+        "height": 360,
         "images": [
           {
             "name": "天际掠影",

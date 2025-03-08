@@ -32,10 +32,11 @@ export const http = <T>(options: CustomRequestOptions) => {
       },
       // 响应失败
       fail(err) {
-        uni.showToast({
-          icon: 'none',
-          title: '网络错误，换个网络试试',
-        })
+        // uni.showToast({
+        //   icon: 'none',
+        //   title: '网络错误，换个网络试试',
+        //   duration: 10_000,
+        // })
         reject(err)
       },
     })

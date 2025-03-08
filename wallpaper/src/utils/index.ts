@@ -179,3 +179,30 @@ export const getEnvBaseUploadUrl = () => {
 
 export * from './system'
 export * from './url'
+
+export const TABBAR = [
+  {
+    iconPath: '/static/tabbar/sy.png',
+    selectedIconPath: '/static/tabbar/sy_art.png',
+    pagePath: '/pages/index/index',
+    text: '首页',
+  },
+  {
+    iconPath: '/static/tabbar/center.png',
+    selectedIconPath: '/static/tabbar/center_art.png',
+    pagePath: '/pages/classify/index',
+    text: '分类',
+  },
+  {
+    iconPath: '/static/tabbar/find.png',
+    selectedIconPath: '/static/tabbar/find_art.png',
+    pagePath: '/pages/search/index',
+    text: '发现',
+  },
+  {
+    iconPath: '/static/tabbar/wd.png',
+    selectedIconPath: '/static/tabbar/wd_art.png',
+    pagePath: '/pages/user/index',
+    text: '我的',
+  },
+]

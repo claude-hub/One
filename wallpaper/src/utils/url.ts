@@ -3,7 +3,7 @@
  * @param url
  * @returns
  */
-export const goPreview = (url: string) => {
+export const goPreview = (url: string, base = '') => {
   const id = url.split('/').pop()?.split('.')[0]
 
   if (!id) {
@@ -11,6 +11,6 @@ export const goPreview = (url: string) => {
   }
 
   uni.navigateTo({
-    url: `/pages/preview/index?id=${id}`,
+    url: `/pages/preview/index?id=${id}&base=${base}`,
   })
 }

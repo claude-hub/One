@@ -87,8 +87,9 @@ export default defineConfig({
    * @see https://github.com/unocss/unocss#shortcuts
    */
   shortcuts: [
-    ['center', 'flex justify-center items-center'],
-    ['center-y', 'flex items-center'],
+    ['flex-center', 'flex justify-center items-center'],
+    ['flex-between', 'flex items-center justify-between'],
+    ['flex-y', 'flex items-center'],
   ],
   transformers: [
     // 启用 @apply 功能

@@ -1,16 +1,16 @@
 <template>
-  <view :class="{ dark: isDark }">
-    <view class="flex flex-col min-h-screen bg-bg-100 text-text-100">
-      <view class="sticky top-0 left-0 right-0 z-10 w-full">
+  <div :class="{ dark: isDark }">
+    <div class="flex flex-col min-h-screen bg-bg-100 text-text-100">
+      <div class="sticky top-0 left-0 right-0 z-10 w-full">
         <nav-bar />
-      </view>
+      </div>
 
-      <view class="flex-1 bg-page" :style="style">
-        <view class="py-2 px-3"><slot /></view>
-      </view>
+      <div class="flex-1 bg-page flex flex-col" :style="style">
+        <div class="py-2 px-3 flex-1 flex flex-col"><slot /></div>
+      </div>
       <tab-bar />
-    </view>
-  </view>
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>

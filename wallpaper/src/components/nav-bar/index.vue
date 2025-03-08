@@ -1,14 +1,14 @@
 <template>
   <view
-    class="bg-page center-y dark:bg-black/80 pb-2"
+    class="bg-page flex-y dark:bg-black/80 pb-2"
     :style="{ paddingTop: statusBarHeight + 'px', height: getTitleBarHeight() + 'px' }"
   >
-    <view class="center-y px-4 gap-2">
+    <view class="flex-y px-4 gap-2">
       <image class="w-8 h-8" src="/static/logo.svg" mode="aspectFit" />
       <view class="mx-4">
         <navigator url="/pages/search/index">
           <view
-            class="flex items-center rounded-full px-3 h-8 border border-solid border-black/20 dark:(border-white/10 bg-black/60)"
+            class="flex items-center rounded-full px-3 h-8 border border-solid border-black/20 dark:(border-white/10 bg-[#181818])"
           >
             <wd-icon name="search" size=".875rem" color="var(--text-300)"></wd-icon>
             <input

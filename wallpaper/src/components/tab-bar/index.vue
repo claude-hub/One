@@ -1,8 +1,11 @@
 <template>
   <view class="fixed bottom-0 left-0 right-0 pb-safe px-8">
-    <view class="h-12 center rounded-full bg-green-100/60 dark:bg-black/30 backdrop-blur-lg">
+    <!-- <view class="h-12 flex-center rounded-full bg-green-100/60 dark:bg-black/30 backdrop-blur-lg"> -->
+    <view
+      class="tabbar h-12 flex-center rounded-full bg-green-100/60 dark:bg-white/22 backdrop-blur-md"
+    >
       <view
-        v-for="(item, index) in list"
+        v-for="(item, index) in TABBAR"
         :key="index"
         class="flex-1 flex flex-col items-center justify-center text-center"
         @click="switchTab(item.pagePath)"
@@ -19,6 +22,7 @@
 </template>
 
 <script lang="ts" setup>
+import { TABBAR } from '@/utils'
 import { ref } from 'vue'
 
 const currentPath = ref('')
@@ -29,28 +33,6 @@ const getCurrentPath = () => {
   const currentPage = pages[pages.length - 1]
   return '/' + currentPage.route
 }
-
-// tabBar 配置
-const list = [
-  {
-    iconPath: '/static/tabbar/home.png',
-    selectedIconPath: '/static/tabbar/home-h.png',
-    pagePath: '/pages/index/index',
-    text: '首页',
-  },
-  {
-    iconPath: '/static/tabbar/classify.png',
-    selectedIconPath: '/static/tabbar/classify-h.png',
-    pagePath: '/pages/classify/index',
-    text: '分类',
-  },
-  {
-    iconPath: '/static/tabbar/user.png',
-    selectedIconPath: '/static/tabbar/user-h.png',
-    pagePath: '/pages/user/index',
-    text: '我的',
-  },
-]
 
 // 切换页面
 const switchTab = (path: string) => {

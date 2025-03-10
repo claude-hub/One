@@ -59,28 +59,11 @@
 
     <common-title v-if="data?.more" :nav="data?.more" />
 
-    <scroll-view
-      :scroll-x="true"
-      :show-scrollbar="false"
-      :scroll-with-animation="true"
-      :scroll-into-view="`type-${currentType}`"
-    >
-      <div class="flex-y gap-4">
-        <template v-for="item in data?.more?.categories" :key="item.name">
-          <div
-            class="flex-auto px-4 py-1 rounded-full text-sm ws-nowrap"
-            :class="{
-              'text-gray-500 bg-gray-100 dark:(bg-[#1d1d1d] text-white)': currentType !== item.name,
-              'text-white bg-[#50AA46]': currentType === item.name,
-            }"
-            :id="`type-${item.name}`"
-            @click="handleSwitchTag(item.name)"
-          >
-            {{ item.name }}
-          </div>
-        </template>
-      </div>
-    </scroll-view>
+    <scroll-tags
+      v-if="data?.more?.categories.length"
+      :tags="data?.more?.categories"
+      @click="(item) => handleSwitchTag(item.name)"
+    />
 
     <div class="mt-6 grid grid-cols-2 gap-3" v-if="images.length">
       <div v-for="(img, index) in images" :key="index" @click="goPreview(img)">
@@ -103,17 +86,33 @@
       :custom-class="loadMoreClass"
     />
   </div>
+
+  <wd-backtop :scrollTop="scrollTop" :duration="300">
+    <wd-img
+      width="24"
+      height="24"
+      :custom-class="'back-top'"
+      src="/static/images/backtop.png"
+      mode="aspectFit"
+    />
+  </wd-backtop>
 </template>
 
 <script lang="ts" setup>
 import CommonTitle from '@/components/common-title/index.vue'
+import ScrollTags from '@/components/scroll-tags/index.vue'
 import { getDailyImages, getHomeData, getTagPaths } from '@/service'
 import { useThemeStore } from '@/store'
 import { HomeData } from '@/types'
 import { goPreview } from '@/utils'
-import { onLoad, onReachBottom } from '@dcloudio/uni-app'
+import { onLoad, onPageScroll, onReachBottom } from '@dcloudio/uni-app'
 import { storeToRefs } from 'pinia'
 import { computed, ref } from 'vue'
+
+const scrollTop = ref<number>(0)
+onPageScroll((e) => {
+  scrollTop.value = e.scrollTop
+})
 
 const themeStore = useThemeStore()
 const { isDark } = storeToRefs(themeStore)
@@ -121,9 +120,7 @@ const { isDark } = storeToRefs(themeStore)
 const { data, error, run } = useRequest<HomeData>(() => getHomeData())
 
 const loadMoreClass = computed(() => {
-  return {
-    darkMore: isDark.value,
-  }
+  return isDark.value ? 'darkMore' : ''
 })
 
 const init = async () => {
@@ -132,8 +129,7 @@ const init = async () => {
     await run()
 
     if (!data.value?.more?.categories?.length) return
-    const { name, path } = data.value.more.categories[0]
-    currentType.value = name || ''
+    const { path } = data.value.more.categories[0]
     const { data: latestData } = await getTagPaths(path)
     paths.value = latestData
   } finally {
@@ -145,7 +141,6 @@ onLoad(() => {
   init()
 })
 
-const currentType = ref('')
 const images = ref<string[]>([])
 const paths = ref<string[]>([])
 const currentSwiper = ref<number>(0)
@@ -161,7 +156,6 @@ const reload = () => {
 const handleSwitchTag = async (tag: string) => {
   try {
     uni.showLoading({ title: '加载中...' })
-    currentType.value = tag
     const path = data.value?.more.categories.find((item) => item.name === tag)?.path || ''
     const { data: tagData } = await getTagPaths(path)
     paths.value = tagData

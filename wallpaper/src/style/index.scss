@@ -3,6 +3,9 @@ page {
   --bg-100: #ffffff;
   // 按钮主题色
   --wot-color-theme: #50aa46;
+
+  // 返回到顶部的颜色 30% opacity
+  --wot-backtop-bg: #0000004d;
 }
 
 // 浅色主题
@@ -15,6 +18,7 @@ page {
 // 深色主题
 .dark {
   --bg-100: #0a0a0a;
+
   .bg-page {
     background: transparent;
   }

@@ -3,16 +3,19 @@
   "data": {
     "banners": [
       {
-        "value": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112141.png"
+        "value": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/电脑平板/动漫游戏/202503080112138.png"
       },
       {
-        "value": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112134.png"
+        "value": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/电脑平板/4K画质/202503080112134.png"
       },
       {
-        "value": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112127.png"
+        "value": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/电脑平板/4K画质/202503080112136.png"
       },
       {
-        "value": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112139.png"
+        "value": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/电脑平板/4K画质/202503080112140.png"
+      },
+      {
+        "value": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/电脑平板/4K画质/202503080112141.png"
       }
     ],
     "categories": [
@@ -27,14 +30,14 @@
           {
             "name": "天际掠影",
             "desc": "天际航迹 · 纵览山河万象",
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503072250108.jpg",
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/手机分类/自然风景/202503072250108.jpg",
             "path": "/pages/classify",
             "count": 9
           },
           {
             "name": "哪吒之魔童闹海",
             "desc": "",
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503011016176.png",
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/手机分类/动漫卡通/哪吒之魔童闹海/202503011025435.jpeg",
             "path": "/pages/classify",
             "count": 20
           }
@@ -49,49 +52,25 @@
         "height": 180,
         "images": [
           {
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112138.png"
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/电脑平板/动漫游戏/202503080112127.png"
           },
           {
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112136.png"
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/电脑平板/动漫游戏/202503080112130.png"
           },
           {
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112127.png"
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/电脑平板/动漫游戏/202503080112131.png"
           },
           {
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112128.png"
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/电脑平板/动漫游戏/202503080112133.png"
           },
           {
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112129.png"
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/电脑平板/动漫游戏/202503080112135.png"
           },
           {
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112130.png"
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/电脑平板/动漫游戏/202503080112137.png"
           },
           {
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112131.png"
-          },
-          {
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112132.png"
-          },
-          {
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112133.png"
-          },
-          {
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112134.png"
-          },
-          {
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112135.png"
-          },
-          {
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112137.png"
-          },
-          {
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112139.png"
-          },
-          {
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112140.png"
-          },
-          {
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080112141.png"
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/电脑平板/动漫游戏/202503080112138.png"
           }
         ]
       },
@@ -104,16 +83,16 @@
         "height": 130,
         "images": [
           {
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080052050.JPG"
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/头像分类/卡通/202503080052050.JPG"
           },
           {
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080052187.JPG"
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/头像分类/卡通/202503080052187.JPG"
           },
           {
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080053234.JPG"
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/头像分类/卡通/202503080053234.JPG"
           },
           {
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/202503080053770.JPG"
+            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/头像分类/卡通/202503080053770.JPG"
           }
         ]
       }

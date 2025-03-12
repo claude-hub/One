@@ -1,32 +1,28 @@
 <script setup lang="ts">
-import { onHide, onLaunch, onShow } from '@dcloudio/uni-app'
+import { useConfigStore, useThemeStore } from '@/store'
+import { onLaunch } from '@dcloudio/uni-app'
 import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only'
 
-import { useThemeStore } from '@/store'
-import { storeToRefs } from 'pinia'
-
 const themeStore = useThemeStore()
-const { isDark } = storeToRefs(themeStore)
-
-watch(
-  () => isDark.value,
-  (newVal) => {
-    uni.setNavigationBarColor({
-      frontColor: newVal ? '#ffffff' : '#000000',
-      backgroundColor: 'transparent',
-    })
-  },
-  { immediate: true },
-)
+const globalConfig = useConfigStore()
 
 onLaunch(() => {
-  console.log('App Launch')
-})
-onShow(() => {
-  console.log('App Show')
-})
-onHide(() => {
-  console.log('App Hide')
+  try {
+    const isDark = themeStore.getTheme()
+    uni.setNavigationBarColor({
+      frontColor: isDark ? '#ffffff' : '#000000',
+      backgroundColor: 'transparent',
+    })
+
+    uni.showLoading({
+      title: '加载中...',
+      mask: true,
+    })
+
+    globalConfig.fetchConfig()
+  } finally {
+    uni.hideLoading()
+  }
 })
 </script>
 

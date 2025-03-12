@@ -36,3 +36,9 @@ export interface HomeData {
   categories: Category[]
   more: More
 }
+
+export interface GlobalConfig {
+  version: string
+  error?: boolean
+  prefix: string
+}

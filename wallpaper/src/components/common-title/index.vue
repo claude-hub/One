@@ -7,10 +7,12 @@
     <navigator
       :url="nav.path"
       :open-type="nav.pathType"
-      class="flex-center gap-1 text-xs bg-gray-100 dark:bg-white/14.5 text-gray-500 rounded-8 pl-2 pr-1 py-1 uppercase"
+      class="text-xs bg-gray-100 dark:bg-white/14.5 text-gray-500 rounded-8 pl-2 pr-1 py-1 uppercase"
     >
-      <div>more</div>
-      <wd-icon name="chevron-right" size="16px"></wd-icon>
+      <div class="flex-center gap-1">
+        <div>more</div>
+        <wd-icon name="chevron-right" size="16px"></wd-icon>
+      </div>
     </navigator>
   </div>
 </template>

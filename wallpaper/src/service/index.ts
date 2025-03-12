@@ -1,4 +1,4 @@
-import { HomeData } from '@/types'
+import { GlobalConfig, HomeData } from '@/types'
 import { httpGet } from '@/utils/http'
 
 export const getTagPaths = (path) => {
@@ -10,5 +10,12 @@ export const getDailyImages = (path) => {
 }
 
 export const getHomeData = () => {
-  return httpGet<HomeData>('/index.json')
+  return httpGet<HomeData>('/data/index.json')
+}
+
+/**
+ * 获取全局配置
+ */
+export const getGlobalConfig = () => {
+  return httpGet<GlobalConfig>('/data/config.json')
 }

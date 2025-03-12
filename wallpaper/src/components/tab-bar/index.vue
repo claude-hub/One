@@ -22,17 +22,10 @@
 </template>
 
 <script lang="ts" setup>
-import { TABBAR } from '@/utils'
+import { currRoute, TABBAR } from '@/utils'
 import { ref } from 'vue'
 
 const currentPath = ref('')
-
-// 获取当前页面路径
-const getCurrentPath = () => {
-  const pages = getCurrentPages()
-  const currentPage = pages[pages.length - 1]
-  return '/' + currentPage.route
-}
 
 // 切换页面
 const switchTab = (path: string) => {
@@ -47,6 +40,7 @@ const getIconPath = (item: any, currPath: string) => {
 
 // 监听页面显示
 onShow(() => {
-  currentPath.value = getCurrentPath()
+  const { path } = currRoute()
+  currentPath.value = path
 })
 </script>

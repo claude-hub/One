@@ -24,7 +24,7 @@
 
     <scroll-view scroll-x>
       <div class="flex items-center gap-3 text-white">
-        <div v-for="image in item.images" :key="image.src" @click="goPreview(image.path)">
+        <div v-for="image in item.images" :key="image.src" @click="goToDetail(image.path)">
           <div class="relative">
             <wd-img
               :width="item.width"
@@ -74,12 +74,7 @@
   </div>
 
   <!-- load more -->
-  <wd-loadmore
-    :state="state"
-    @reload="loadAgain"
-    finished-text="没有更多了"
-    :custom-class="loadMoreClass"
-  />
+  <load-more :state="state" @reload="loadAgain" />
 
   <!-- back top -->
   <wd-backtop :scrollTop="scrollTop" :duration="300">
@@ -95,28 +90,20 @@
 
 <script lang="ts" setup>
 import CommonTitle from '@/components/common-title/index.vue'
+import LoadMore from '@/components/load-more/index.vue'
 import ScrollTags from '@/components/scroll-tags/index.vue'
 import { getDailyImages, getHomeData, getTagPaths } from '@/service'
-import { useThemeStore } from '@/store'
 import { HomeData } from '@/types'
-import { goPreview } from '@/utils'
+import { goPreview, goToDetail } from '@/utils'
 import { onLoad, onPageScroll, onReachBottom } from '@dcloudio/uni-app'
-import { storeToRefs } from 'pinia'
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 
 const scrollTop = ref<number>(0)
 onPageScroll((e) => {
   scrollTop.value = e.scrollTop
 })
 
-const themeStore = useThemeStore()
-const { isDark } = storeToRefs(themeStore)
-
 const { data, run } = useRequest<HomeData>(() => getHomeData())
-
-const loadMoreClass = computed(() => {
-  return isDark.value ? 'darkMore' : ''
-})
 
 const init = async () => {
   try {
@@ -206,10 +193,3 @@ defineOptions({
   name: 'Home',
 })
 </script>
-
-<style lang="scss" scoped>
-:deep(.darkMore) {
-  --wot-loadmore-color: #fff;
-  --wot-divider-color: #fff;
-}
-</style>

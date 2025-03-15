@@ -35,20 +35,8 @@
       {
         "iconPath": "static/tabbar/center.png",
         "selectedIconPath": "static/tabbar/center_art.png",
-        "pagePath": "pages/classify/index",
+        "pagePath": "pages/category/index",
         "text": "分类"
-      },
-      {
-        "iconPath": "static/tabbar/find.png",
-        "selectedIconPath": "static/tabbar/find_art.png",
-        "pagePath": "pages/search/index",
-        "text": "发现"
-      },
-      {
-        "iconPath": "static/tabbar/wd.png",
-        "selectedIconPath": "static/tabbar/wd_art.png",
-        "pagePath": "pages/user/index",
-        "text": "我的"
       }
     ]
   },
@@ -61,31 +49,26 @@
       }
     },
     {
-      "path": "pages/classify/index",
+      "path": "pages/category/index",
       "type": "page",
       "style": {
         "navigationBarTitleText": "分类"
       }
     },
     {
+      "path": "pages/category-detail/index",
+      "type": "page",
+      "layout": "second",
+      "style": {
+        "navigationBarTitleText": "分类详情"
+      }
+    },
+    {
       "path": "pages/preview/index",
       "type": "page",
+      "layout": "none",
       "style": {
         "navigationBarTitleText": "预览"
-      }
-    },
-    {
-      "path": "pages/search/index",
-      "type": "page",
-      "style": {
-        "navigationBarTitleText": "搜索"
-      }
-    },
-    {
-      "path": "pages/user/index",
-      "type": "page",
-      "style": {
-        "navigationBarTitleText": "我的"
       }
     }
   ],

@@ -1,4 +1,5 @@
 import Uni from '@dcloudio/vite-plugin-uni'
+import UniKuRoot from '@uni-ku/root'
 import dayjs from 'dayjs'
 import path from 'node:path'
 import { defineConfig, loadEnv } from 'vite'
@@ -61,6 +62,7 @@ export default ({ command, mode }) => {
       UniLayouts(),
       UniPlatform(),
       UniManifest(),
+      UniKuRoot(),
       // UniXXX 需要在 Uni 之前引入
       Uni(),
       {

@@ -9,14 +9,12 @@
       </div>
       <div v-else class="py-4 px-3 flex-1 flex flex-col"><slot /></div>
     </div>
-    <tab-bar />
   </div>
 </template>
 
 <script lang="ts" setup>
 import NavBar from '@/components/nav-bar/index.vue'
 import Reload from '@/components/reload/index.vue'
-import TabBar from '@/components/tab-bar/index.vue'
 import { getNavBarHeight } from '@/utils'
 
 import { useConfigStore } from '@/store'

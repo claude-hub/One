@@ -1,4 +1,4 @@
-import { GlobalConfig, HomeData } from '@/types'
+import { CategoryData, GlobalConfig, HomeData } from '@/types'
 import { httpGet } from '@/utils/http'
 
 export const getTagPaths = (path) => {
@@ -11,6 +11,14 @@ export const getDailyImages = (path) => {
 
 export const getHomeData = () => {
   return httpGet<HomeData>('/data/index.json')
+}
+
+export const getDetails = (path) => {
+  return httpGet<{ name: string; images: string[] }>(path)
+}
+
+export const getCategoryData = () => {
+  return httpGet<CategoryData[]>('/data/category.json')
 }
 
 /**

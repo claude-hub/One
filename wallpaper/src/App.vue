@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import { useConfigStore, useThemeStore } from '@/store'
 import { onLaunch } from '@dcloudio/uni-app'
-import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only'
 
 const themeStore = useThemeStore()
 const globalConfig = useConfigStore()
 
 onLaunch(() => {
   try {
-    const isDark = themeStore.getTheme()
+    const isDark = themeStore.theme === 'dark'
     uni.setNavigationBarColor({
       frontColor: isDark ? '#ffffff' : '#000000',
       backgroundColor: 'transparent',
@@ -18,7 +17,6 @@ onLaunch(() => {
       title: '加载中...',
       mask: true,
     })
-
     globalConfig.fetchConfig()
   } finally {
     uni.hideLoading()

@@ -1,5 +1,6 @@
 <route lang="json5" type="page">
 {
+  layout: 'none',
   style: {
     navigationBarTitleText: '预览',
   },
@@ -7,27 +8,26 @@
 </route>
 
 <template>
-  <view class="preview-container">
-    <view class="datetime-display">
-      <text class="time">{{ currentTime }}</text>
-      <text class="date">{{ currentDate }}</text>
-    </view>
+  <div class="preview-container">
+    <div class="datetime-display">
+      <div class="time">{{ currentTime }}</div>
+      <div class="date">{{ currentDate }}</div>
+    </div>
     <image :src="url" mode="aspectFit" class="preview-image" @tap="previewImage" />
-    <view class="action-bar">
+    <div class="action-bar">
       <button class="save-btn" @tap="saveImage">保存图片</button>
-    </view>
-  </view>
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import { onLoad, onUnload } from '@dcloudio/uni-app'
+import { onLoad } from '@dcloudio/uni-app'
 import { ref } from 'vue'
 
 // 定义 id 变量
 const url = ref('')
 const currentTime = ref('')
 const currentDate = ref('')
-let timer: number
 
 // 更新时间和日期
 const updateDateTime = () => {
@@ -44,14 +44,6 @@ const updateDateTime = () => {
 // 页面加载时获取 url 参数
 onLoad((option) => {
   url.value = option.url || ''
-  updateDateTime()
-  // 每秒更新时间
-  timer = setInterval(updateDateTime, 1000)
-})
-
-// 页面卸载时清除定时器
-onUnload(() => {
-  clearInterval(timer)
 })
 
 // 预览图片

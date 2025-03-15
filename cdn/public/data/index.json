@@ -31,7 +31,7 @@
             "name": "天际掠影",
             "desc": "天际航迹 · 纵览山河万象",
             "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/手机分类/自然风景/202503072250108.jpg",
-            "path": "/pages/classify",
+            "path": "/data/a.json",
             "count": 9
           },
           {

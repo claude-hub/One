@@ -1,23 +1,25 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-
+import type { ConfigProviderThemeVars } from 'wot-design-uni'
 export const useThemeStore = defineStore(
   'theme',
   () => {
-    const isDark = ref(true)
+    const theme = ref<'light' | 'dark'>('dark')
+    const themeVars = ref<ConfigProviderThemeVars>()
 
-    const toggleTheme = () => {
-      isDark.value = !isDark.value
+    const toggleTheme = (mode?: 'light' | 'dark') => {
+      theme.value = mode || (theme.value === 'light' ? 'dark' : 'light')
     }
 
-    const getTheme = () => {
-      return isDark.value
+    const setThemeVars = (vars: ConfigProviderThemeVars) => {
+      themeVars.value = vars
     }
 
     return {
-      isDark,
+      theme,
+      themeVars,
       toggleTheme,
-      getTheme,
+      setThemeVars,
     }
   },
   {

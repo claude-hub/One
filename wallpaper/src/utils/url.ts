@@ -12,3 +12,13 @@ export const goPreview = (url: string) => {
     url: `/pages/preview/index?url=${url}`,
   })
 }
+
+export const goToDetail = (url: string) => {
+  if (!url) {
+    return
+  }
+
+  uni.navigateTo({
+    url: `/pages/category-detail/index?url=${url}`,
+  })
+}

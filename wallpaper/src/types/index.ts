@@ -37,8 +37,28 @@ export interface HomeData {
   more: More
 }
 
+interface CategoryDetail {
+  name: string
+  image: string
+  details: {
+    name: string
+    image: string
+    path: string
+  }[]
+}
+
+export interface CategoryData {
+  name: string
+  categories: CategoryDetail[]
+}
+
 export interface GlobalConfig {
   version: string
   error?: boolean
   prefix: string
+}
+
+export interface ImageCollection {
+  name: string
+  images: string[]
 }

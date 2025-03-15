@@ -1,9 +1,9 @@
 <template>
   <div class="fixed bottom-0 left-0 right-0 pb-safe px-8">
-    <!-- <div class="h-12 flex-center rounded-full bg-green-100/60 dark:bg-black/30 backdrop-blur-lg"> -->
-    <div
+    <div class="h-12 flex-center rounded-full bg-green-100/60 dark:bg-black/50 backdrop-blur-lg">
+      <!-- <div
       class="tabbar h-12 flex-center rounded-full bg-green-100/60 dark:bg-white/22 backdrop-blur-md"
-    >
+    > -->
       <div
         v-for="(item, index) in TABBAR"
         :key="index"

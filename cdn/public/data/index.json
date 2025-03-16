@@ -22,7 +22,7 @@
       {
         "name": "壁纸专辑",
         "desc": "wallpaper album",
-        "path": "/pages/classify/index",
+        "type": "手机分类",
         "pathType": "switchTab",
         "width": 240,
         "height": 360,
@@ -46,8 +46,7 @@
       {
         "name": "电脑平板",
         "desc": "computer tablet",
-        "path": "/pages/classify/index",
-        "pathType": "switchTab",
+        "type": "电脑平板",
         "width": 320,
         "height": 180,
         "images": [
@@ -77,8 +76,7 @@
       {
         "name": "精选头像",
         "desc": "selected avatars",
-        "path": "/pages/classify/index",
-        "pathType": "switchTab",
+        "type": "头像",
         "width": 130,
         "height": 130,
         "images": [

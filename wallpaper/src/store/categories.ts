@@ -5,17 +5,23 @@ import { defineStore } from 'pinia'
 // 定义分类状态类型
 interface CategoryState {
   categories: CategoryData[]
+  type: string
 }
 
 export const useCategoriesStore = defineStore('categories', {
   state: (): CategoryState => ({
     categories: [],
+    type: '',
   }),
 
   actions: {
     // 更新全局配置
     setCategories(categories) {
       this.categories = categories
+    },
+
+    setType(type) {
+      this.type = type
     },
 
     async fetchCategories() {

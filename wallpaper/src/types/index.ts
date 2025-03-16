@@ -20,8 +20,7 @@ interface Category extends NavigationTitle {
 export interface NavigationTitle {
   name: string
   desc: string
-  path: string
-  pathType: string
+  type: string
 }
 
 interface More extends NavigationTitle {

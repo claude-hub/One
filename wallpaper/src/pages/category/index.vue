@@ -9,9 +9,9 @@
 <template>
   <div v-if="curCategory?.name">
     <wd-segmented
+      v-model:value="categoriesStore.type"
       :options="segmentedOptions"
       size="large"
-      @change="handleSegmentedChange"
     ></wd-segmented>
 
     <div class="flex items-start gap-3 mt-4">
@@ -52,18 +52,26 @@
 
 <script lang="ts" setup>
 import { getCategoryData } from '@/service'
+import { useCategoriesStore } from '@/store'
 import { CategoryData } from '@/types'
 import { goToDetail } from '@/utils'
 import { onLoad } from '@dcloudio/uni-app'
+
+const categoriesStore = useCategoriesStore()
 
 const categories = ref([])
 const curCategory = ref<CategoryData>()
 const activeSidebar = ref('')
 
-const handleSegmentedChange = ({ value }) => {
+const handleSegmentedChange = ({ value = '' }) => {
   const data = categories.value.find((item) => item.name === value)
-  curCategory.value = data
-  activeSidebar.value = data.categories?.[0]?.name || ''
+  if (data) {
+    curCategory.value = data
+    activeSidebar.value = data.categories?.[0]?.name || ''
+  } else {
+    curCategory.value = categories.value[0]
+    activeSidebar.value = categories.value[0].categories?.[0]?.name || ''
+  }
 }
 const segmentedOptions = ref([])
 
@@ -71,6 +79,14 @@ const curDetail = computed(() => {
   return curCategory.value?.categories?.find((item) => item.name === activeSidebar.value)?.details
 })
 
+watch(
+  () => categoriesStore.type,
+  (newValue) => {
+    if (newValue) {
+      handleSegmentedChange({ value: newValue })
+    }
+  },
+)
 const init = async () => {
   try {
     uni.showLoading({ title: '加载中...', mask: true })
@@ -79,10 +95,8 @@ const init = async () => {
     categories.value = data
     // 顶部数据
     segmentedOptions.value = data.map((item) => item.name)
-    // 当前选中的分类
-    curCategory.value = data[0]
-    // 当前激活的左侧菜单
-    activeSidebar.value = data[0].categories?.[0]?.name || ''
+
+    handleSegmentedChange({ value: categoriesStore.type })
   } catch (error) {
     uni.showToast({
       title: '获取分类失败',

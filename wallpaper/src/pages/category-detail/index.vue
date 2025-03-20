@@ -9,9 +9,12 @@
 
 <template>
   <div class="font-medium text-center">{{ detail?.name }}</div>
+
+  <wd-tag mark v-for="tag in detail?.tags">{{ tag }}</wd-tag>
+
   <div class="mt-6 grid grid-cols-3 gap-3" v-if="detail?.images.length">
     <div v-for="(img, index) in detail.images" :key="index" @click="goPreview(img)">
-      <wd-img
+      <my-img
         lazy-load
         width="100%"
         :height="366"
@@ -19,7 +22,7 @@
         :src="img"
         :radius="12"
         class="w-full"
-      ></wd-img>
+      ></my-img>
     </div>
   </div>
 </template>

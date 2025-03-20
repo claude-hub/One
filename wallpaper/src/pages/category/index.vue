@@ -7,43 +7,21 @@
 </route>
 
 <template>
-  <div v-if="curCategory?.name">
-    <wd-segmented
-      v-model:value="categoriesStore.type"
-      :options="segmentedOptions"
-      size="large"
-    ></wd-segmented>
-
-    <div class="flex items-start gap-3 mt-4">
-      <wd-sidebar v-model="activeSidebar">
-        <wd-sidebar-item
-          v-for="item in curCategory.categories"
-          :key="`sidebar-${item.name}`"
-          :value="item.name"
-          :label="item.name"
-        ></wd-sidebar-item>
-      </wd-sidebar>
-
-      <div class="grid grid-cols-3 gap-2 flex-1" v-if="curDetail?.length">
+  <div v-for="category in categories">
+    <div class="text-xl">{{ category.name }}</div>
+    <div class="grid grid-cols-2 gap-2 my-4">
+      <div
+        class="relative"
+        v-for="child in category.children"
+        :key="child.name"
+        @click="goToDetail(child.path)"
+      >
+        <my-img :height="120" width="100%" mode="aspectFill" :src="child.logo" :radius="8"></my-img>
         <div
-          class="relative"
-          v-for="(category, index) in curDetail"
-          :key="index"
-          @click="goToDetail(category.path)"
+          class="absolute bottom-0 left-0 right-0 py-1.5 px-2 text-center bg-white/50 dark:(bg-black/50) backdrop-blur-lg rounded-b-2 text-xs"
+          v-if="child.name"
         >
-          <wd-img
-            :height="100"
-            width="100%"
-            mode="aspectFill"
-            :src="category.image"
-            :radius="8"
-          ></wd-img>
-          <div
-            class="absolute bottom-0 left-0 right-0 py-1.5 px-2 text-center dark:(bg-black/50) backdrop-blur-md rounded-b-2 text-xs"
-            v-if="category.name"
-          >
-            <div class="truncate">{{ category.name }}</div>
-          </div>
+          <div class="truncate">{{ child.name }}</div>
         </div>
       </div>
     </div>
@@ -53,37 +31,17 @@
 <script lang="ts" setup>
 import { getCategoryData } from '@/service'
 import { useCategoriesStore } from '@/store'
-import { CategoryData } from '@/types'
 import { goToDetail } from '@/utils'
 import { onLoad } from '@dcloudio/uni-app'
 
 const categoriesStore = useCategoriesStore()
-
 const categories = ref([])
-const curCategory = ref<CategoryData>()
-const activeSidebar = ref('')
-
-const handleSegmentedChange = ({ value = '' }) => {
-  const data = categories.value.find((item) => item.name === value)
-  if (data) {
-    curCategory.value = data
-    activeSidebar.value = data.categories?.[0]?.name || ''
-  } else {
-    curCategory.value = categories.value[0]
-    activeSidebar.value = categories.value[0].categories?.[0]?.name || ''
-  }
-}
-const segmentedOptions = ref([])
-
-const curDetail = computed(() => {
-  return curCategory.value?.categories?.find((item) => item.name === activeSidebar.value)?.details
-})
 
 watch(
   () => categoriesStore.type,
   (newValue) => {
     if (newValue) {
-      handleSegmentedChange({ value: newValue })
+      console.log('====', newValue)
     }
   },
 )
@@ -91,12 +49,9 @@ const init = async () => {
   try {
     uni.showLoading({ title: '加载中...', mask: true })
     const { data } = await getCategoryData()
+    console.log(data)
     if (!data.length) return
     categories.value = data
-    // 顶部数据
-    segmentedOptions.value = data.map((item) => item.name)
-
-    handleSegmentedChange({ value: categoriesStore.type })
   } catch (error) {
     uni.showToast({
       title: '获取分类失败',

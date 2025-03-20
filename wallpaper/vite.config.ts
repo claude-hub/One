@@ -16,6 +16,7 @@ import UniManifest from '@uni-helper/vite-plugin-uni-manifest'
 import { visualizer } from 'rollup-plugin-visualizer'
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite' // 添加这一行
 import ViteRestart from 'vite-plugin-restart'
 import { copyNativeRes } from './vite-plugins/copyNativeRes'
 
@@ -51,6 +52,17 @@ export default ({ command, mode }) => {
     envDir: './env', // 自定义env目录
 
     plugins: [
+      // 添加 Components 插件配置
+      Components({
+        dirs: ['src/components'],
+        // extensions: ['vue'],
+        dts: 'src/types/components.d.ts',
+        // deep: true,
+        // include: [/\.vue$/, /\.vue\?vue/],
+        // // 自定义组件名称解析
+        // resolvers: [],
+      }),
+
       UniPages({
         exclude: ['**/components/**/**.*'],
         routeBlockLang: 'json5', // 虽然设了默认值，但是vue文件还是要加上 lang="json5", 这样才能很好地格式化

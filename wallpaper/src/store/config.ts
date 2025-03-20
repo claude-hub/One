@@ -5,7 +5,9 @@ import { defineStore } from 'pinia'
 const defaultConfig: GlobalConfig = {
   version: '',
   error: false,
-  prefix: '',
+  apiPrefix: '',
+  imgPrefix: '',
+  ready: false,
 }
 
 export const useConfigStore = defineStore('config', {
@@ -20,8 +22,11 @@ export const useConfigStore = defineStore('config', {
     async fetchConfig() {
       try {
         this.error = false
+        this.ready = false
         const { data } = await getGlobalConfig()
         this.setConfig(data)
+
+        this.ready = true
       } catch (error) {
         this.error = true
       }

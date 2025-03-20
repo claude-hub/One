@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { useUserStore } from '@/store'
+import { useConfigStore, useUserStore } from '@/store'
 import { getEnvBaseUrl } from '@/utils'
 import { platform } from '@/utils/platform'
 import qs from 'qs'
@@ -11,7 +11,7 @@ export type CustomRequestOptions = UniApp.RequestOptions & {
 }
 
 // 请求基准地址
-const baseUrl = getEnvBaseUrl()
+const envUrl = getEnvBaseUrl()
 
 // 拦截器配置
 const httpInterceptor = {
@@ -26,6 +26,11 @@ const httpInterceptor = {
         options.url += `?${queryStr}`
       }
     }
+
+    const configStore = useConfigStore()
+    console.log('apiPrefix:', configStore.apiPrefix, ' env:', envUrl)
+    const baseUrl = configStore.apiPrefix || envUrl
+
     // 非 http 开头需拼接地址
     if (!options.url.startsWith('http')) {
       // #ifdef H5

@@ -1,4 +1,7 @@
 import '@/style/index.scss'
+// 百度统计
+// import '@/utils/mtj-wx-sdk'
+// import '@/utils/mtj-wx-sdk.config'
 import { VueQueryPlugin } from '@tanstack/vue-query'
 import 'virtual:uno.css'
 import { createSSRApp } from 'vue'

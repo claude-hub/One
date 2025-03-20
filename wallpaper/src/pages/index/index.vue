@@ -8,8 +8,8 @@
 <template>
   <!-- 轮播 -->
   <wd-swiper
-    v-if="data?.banners?.length"
-    :list="data?.banners"
+    v-if="banners?.length"
+    :list="banners"
     autoplay
     stopAutoplayWhenVideoPlay
     v-model:currentType="currentSwiper"
@@ -26,13 +26,13 @@
       <div class="flex items-center gap-3 text-white">
         <div v-for="image in item.images" :key="image.src" @click="goToDetail(image.path)">
           <div class="relative">
-            <wd-img
+            <my-img
               :width="item.width"
               :height="item.height"
               mode="aspectFill"
               :src="image.src"
               :radius="24"
-            ></wd-img>
+            />
             <div class="absolute font-600 top-3 right-3" v-if="image.count">
               <div
                 class="aspect-square flex-center border-2 border-solid border-amber rounded-full w-6 h-6"
@@ -61,15 +61,16 @@
   />
   <div class="mt-6 grid grid-cols-2 gap-3" v-if="images.length">
     <div v-for="(img, index) in images" :key="index" @click="goPreview(img)">
-      <wd-img
+      <my-img
         lazy-load
+        :lazy-load-margin="0"
         width="100%"
         :height="366"
         mode="aspectFill"
         :src="img"
         :radius="12"
         class="w-full"
-      ></wd-img>
+      />
     </div>
   </div>
 
@@ -93,10 +94,14 @@ import CommonTitle from '@/components/common-title/index.vue'
 import LoadMore from '@/components/load-more/index.vue'
 import ScrollTags from '@/components/scroll-tags/index.vue'
 import { getDailyImages, getHomeData, getTagPaths } from '@/service'
+import { useConfigStore } from '@/store'
 import { HomeData } from '@/types'
 import { goPreview, goToDetail } from '@/utils'
-import { onLoad, onPageScroll, onReachBottom } from '@dcloudio/uni-app'
-import { ref } from 'vue'
+import { onPageScroll, onReachBottom } from '@dcloudio/uni-app'
+import { storeToRefs } from 'pinia'
+
+const globalStore = useConfigStore()
+const { ready, imgPrefix } = storeToRefs(globalStore)
 
 const scrollTop = ref<number>(0)
 onPageScroll((e) => {
@@ -104,6 +109,21 @@ onPageScroll((e) => {
 })
 
 const { data, run } = useRequest<HomeData>(() => getHomeData())
+
+watchEffect(() => {
+  if (ready.value) {
+    init()
+  }
+})
+
+const banners = computed(() => {
+  return data.value?.banners.map((item) => {
+    return {
+      ...item,
+      value: imgPrefix.value + item.value,
+    }
+  })
+})
 
 const init = async () => {
   try {
@@ -118,10 +138,6 @@ const init = async () => {
     uni.hideLoading()
   }
 }
-
-onLoad(() => {
-  init()
-})
 
 const images = ref<string[]>([])
 const paths = ref<string[]>([])

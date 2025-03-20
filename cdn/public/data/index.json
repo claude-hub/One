@@ -3,19 +3,19 @@
   "data": {
     "banners": [
       {
-        "value": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/电脑平板/动漫游戏/202503080112138.png"
+        "value": "/电脑平板/动漫游戏/202503080112138.png"
       },
       {
-        "value": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/电脑平板/4K画质/202503080112134.png"
+        "value": "/电脑平板/动漫游戏/202503080112134.png"
       },
       {
-        "value": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/电脑平板/4K画质/202503080112136.png"
+        "value": "/电脑平板/4K画质/202503080112136.png"
       },
       {
-        "value": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/电脑平板/4K画质/202503080112140.png"
+        "value": "/电脑平板/4K画质/202503080112140.png"
       },
       {
-        "value": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/电脑平板/4K画质/202503080112141.png"
+        "value": "/电脑平板/动漫游戏/202503080112141.png"
       }
     ],
     "categories": [
@@ -23,22 +23,21 @@
         "name": "壁纸专辑",
         "desc": "wallpaper album",
         "type": "手机分类",
-        "pathType": "switchTab",
         "width": 240,
         "height": 360,
         "images": [
           {
             "name": "天际掠影",
             "desc": "天际航迹 · 纵览山河万象",
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/手机分类/自然风景/202503072250108.jpg",
-            "path": "/data/a.json",
+            "src": "/手机分类/自然风景/202503072250108.jpg",
+            "path": "/data/categories/手机分类/自然风景/index.json",
             "count": 9
           },
           {
             "name": "哪吒之魔童闹海",
             "desc": "",
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/手机分类/动漫卡通/哪吒之魔童闹海/202503011025435.jpeg",
-            "path": "/pages/classify",
+            "src": "/手机分类/动漫卡通/哪吒之魔童闹海/202503011051616.jpeg",
+            "path": "/data/categories/手机分类/动漫卡通/哪吒之魔童闹海.json",
             "count": 20
           }
         ]
@@ -51,25 +50,25 @@
         "height": 180,
         "images": [
           {
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/电脑平板/动漫游戏/202503080112127.png"
+            "src": "/电脑平板/文字文案/202503080112127.png"
           },
           {
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/电脑平板/动漫游戏/202503080112130.png"
+            "src": "/电脑平板/动漫游戏/202503080112130.png"
           },
           {
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/电脑平板/动漫游戏/202503080112131.png"
+            "src": "/电脑平板/动漫游戏/202503080112131.png"
           },
           {
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/电脑平板/动漫游戏/202503080112133.png"
+            "src": "/电脑平板/动漫游戏/202503080112133.png"
           },
           {
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/电脑平板/动漫游戏/202503080112135.png"
+            "src": "/电脑平板/动漫游戏/202503080112135.png"
           },
           {
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/电脑平板/动漫游戏/202503080112137.png"
+            "src": "/电脑平板/动漫游戏/202503080112137.png"
           },
           {
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/电脑平板/动漫游戏/202503080112138.png"
+            "src": "/电脑平板/动漫游戏/202503080112138.png"
           }
         ]
       },
@@ -81,16 +80,16 @@
         "height": 130,
         "images": [
           {
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/头像分类/卡通/202503080052050.JPG"
+            "src": "/头像分类/卡通/202503080052050.JPG"
           },
           {
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/头像分类/卡通/202503080052187.JPG"
+            "src": "/头像分类/卡通/202503080052187.JPG"
           },
           {
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/头像分类/卡通/202503080053234.JPG"
+            "src": "/头像分类/卡通/202503080053234.JPG"
           },
           {
-            "src": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/头像分类/卡通/202503080053770.JPG"
+            "src": "/头像分类/卡通/202503080053770.JPG"
           }
         ]
       }
@@ -99,16 +98,7 @@
       "name": "热门壁纸",
       "desc": "溯源壁纸艺术脉络 探寻美学无尽奥秘",
       "path": "/pages/classify/index",
-      "pathType": "switchTab",
-      "categories": [
-        { "name": "最新", "path": "/data/categories/latest/index.json" },
-        { "name": "热门", "path": "/data/categories/hot.json" },
-        { "name": "简约", "path": "/data/categories/latest.json" },
-        { "name": "动漫", "path": "/data/categories/latest.json" },
-        { "name": "宠物", "path": "/data/categories/latest.json" },
-        { "name": "建筑", "path": "/data/categories/latest.json" },
-        { "name": "风景", "path": "/data/categories/latest.json" }
-      ]
+      "categories": [{ "name": "最新", "path": "/data/categories/latest/index.json" }]
     }
   },
   "msg": "success"

@@ -1,0 +1,56 @@
+{
+  "code": 200,
+  "msg": "success",
+  "data": [
+    {
+      "name": "手机分类",
+      "children": [
+        {
+          "name": "自然风景",
+          "logo": "/手机分类/自然风景/202503042321870.jpeg",
+          "path": "/data/categories/手机分类/自然风景/index.json"
+        },
+        {
+          "name": "动漫卡通",
+          "logo": "/手机分类/动漫卡通/哆啦A梦/202503011030258.jpeg",
+          "path": "/data/categories/手机分类/动漫卡通/index.json"
+        }
+      ]
+    },
+    {
+      "name": "电脑平板",
+      "children": [
+        {
+          "name": "4K画质",
+          "logo": "/电脑平板/4K画质/202503080112136.png",
+          "path": "/data/categories/电脑平板/4K画质/index.json"
+        },
+        {
+          "name": "动漫游戏",
+          "logo": "/电脑平板/动漫游戏/202503080112128.png",
+          "path": "/data/categories/电脑平板/动漫游戏/index.json"
+        },
+        {
+          "name": "原生",
+          "logo": "/电脑平板/原生/202503080112132.png",
+          "path": "/data/categories/电脑平板/原生/index.json"
+        },
+        {
+          "name": "文字文案",
+          "logo": "/电脑平板/文字文案/202503080112127.png",
+          "path": "/data/categories/电脑平板/文字文案/index.json"
+        }
+      ]
+    },
+    {
+      "name": "头像分类",
+      "children": [
+        {
+          "name": "卡通",
+          "logo": "/头像分类/卡通/202503080051686.JPG",
+          "path": "/data/categories/头像分类/卡通/index.json"
+        }
+      ]
+    }
+  ]
+}

@@ -1,27 +1,30 @@
 {
   "code": 200,
   "msg": "success",
-  "data": [
-    "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/手机分类/动漫卡通/哆啦A梦/202503011030258.jpeg",
-    "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/手机分类/动漫卡通/哆啦A梦/202503011030259.jpeg",
-    "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/手机分类/动漫卡通/哆啦A梦/202503011030260.jpeg",
-    "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/手机分类/动漫卡通/哆啦A梦/202503011030261.jpeg",
-    "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/手机分类/动漫卡通/哆啦A梦/202503011030263.jpeg",
-    "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/手机分类/动漫卡通/哆啦A梦/202503011030264.jpeg",
-    "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/手机分类/动漫卡通/哆啦A梦/202503011030265.jpeg",
-    "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/手机分类/动漫卡通/哆啦A梦/202503011030266.jpeg",
-    "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/手机分类/动漫卡通/哆啦A梦/202503011030267.jpeg",
-    "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/手机分类/动漫卡通/哆啦A梦/202503011030268.jpeg",
-    "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/手机分类/动漫卡通/哆啦A梦/202503011030269.jpeg",
-    "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/手机分类/动漫卡通/哆啦A梦/202503011030270.jpeg",
-    "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/手机分类/动漫卡通/哆啦A梦/202503011030271.jpeg",
-    "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/手机分类/动漫卡通/哆啦A梦/202503011030272.jpeg",
-    "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/手机分类/动漫卡通/哆啦A梦/202503011030273.jpeg",
-    "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/手机分类/动漫卡通/哆啦A梦/202503011030274.jpeg",
-    "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/手机分类/动漫卡通/哆啦A梦/202503011030275.jpeg",
-    "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/手机分类/动漫卡通/哆啦A梦/202503011030276.jpeg",
-    "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/手机分类/动漫卡通/哆啦A梦/202503011030277.jpeg",
-    "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/手机分类/动漫卡通/哆啦A梦/202503011030278.jpeg",
-    "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper/手机分类/动漫卡通/哆啦A梦/202503011030279.jpeg"
-  ]
+  "data": {
+    "name": "哆啦A梦",
+    "images": [
+      "/手机分类/动漫卡通/哆啦A梦/202503011030258.jpeg",
+      "/手机分类/动漫卡通/哆啦A梦/202503011030259.jpeg",
+      "/手机分类/动漫卡通/哆啦A梦/202503011030260.jpeg",
+      "/手机分类/动漫卡通/哆啦A梦/202503011030261.jpeg",
+      "/手机分类/动漫卡通/哆啦A梦/202503011030263.jpeg",
+      "/手机分类/动漫卡通/哆啦A梦/202503011030264.jpeg",
+      "/手机分类/动漫卡通/哆啦A梦/202503011030265.jpeg",
+      "/手机分类/动漫卡通/哆啦A梦/202503011030266.jpeg",
+      "/手机分类/动漫卡通/哆啦A梦/202503011030267.jpeg",
+      "/手机分类/动漫卡通/哆啦A梦/202503011030268.jpeg",
+      "/手机分类/动漫卡通/哆啦A梦/202503011030269.jpeg",
+      "/手机分类/动漫卡通/哆啦A梦/202503011030270.jpeg",
+      "/手机分类/动漫卡通/哆啦A梦/202503011030271.jpeg",
+      "/手机分类/动漫卡通/哆啦A梦/202503011030272.jpeg",
+      "/手机分类/动漫卡通/哆啦A梦/202503011030273.jpeg",
+      "/手机分类/动漫卡通/哆啦A梦/202503011030274.jpeg",
+      "/手机分类/动漫卡通/哆啦A梦/202503011030275.jpeg",
+      "/手机分类/动漫卡通/哆啦A梦/202503011030276.jpeg",
+      "/手机分类/动漫卡通/哆啦A梦/202503011030277.jpeg",
+      "/手机分类/动漫卡通/哆啦A梦/202503011030278.jpeg",
+      "/手机分类/动漫卡通/哆啦A梦/202503011030279.jpeg"
+    ]
+  }
 }

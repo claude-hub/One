@@ -38,26 +38,25 @@ export interface HomeData {
 
 interface CategoryDetail {
   name: string
-  image: string
-  details: {
-    name: string
-    image: string
-    path: string
-  }[]
+  logo: string
+  path: string
 }
 
 export interface CategoryData {
   name: string
-  categories: CategoryDetail[]
+  children: CategoryDetail[]
 }
 
 export interface GlobalConfig {
   version: string
   error?: boolean
-  prefix: string
+  ready: boolean
+  apiPrefix: string
+  imgPrefix: string
 }
 
 export interface ImageCollection {
   name: string
+  tags?: string[]
   images: string[]
 }

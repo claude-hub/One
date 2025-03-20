@@ -18,12 +18,17 @@ export const getDetails = (path) => {
 }
 
 export const getCategoryData = () => {
-  return httpGet<CategoryData[]>('/data/category.json')
+  return httpGet<CategoryData[]>('/data/categories/index.json')
 }
 
 /**
  * 获取全局配置
  */
-export const getGlobalConfig = () => {
-  return httpGet<GlobalConfig>('/data/config.json')
+export const getGlobalConfig = async () => {
+  const res = await httpGet<GlobalConfig>('/data/config.json')
+  return new Promise<any>((resolve) => {
+    setTimeout(() => {
+      resolve(res)
+    }, 300)
+  })
 }

@@ -5,7 +5,7 @@ import { onLaunch } from '@dcloudio/uni-app'
 const themeStore = useThemeStore()
 const globalConfig = useConfigStore()
 
-onLaunch(() => {
+onLaunch(async () => {
   try {
     const isDark = themeStore.theme === 'dark'
     uni.setNavigationBarColor({
@@ -17,7 +17,7 @@ onLaunch(() => {
       title: '加载中...',
       mask: true,
     })
-    globalConfig.fetchConfig()
+    await globalConfig.fetchConfig()
   } finally {
     uni.hideLoading()
   }

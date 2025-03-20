@@ -3,6 +3,7 @@
   "msg": "success",
   "data": {
     "version": "1.0.0",
-    "prefix": "https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/wallpaper"
+    "apiPrefix": "http://cdn.claude-hub.cn",
+    "imgPrefix": "http://cdn.claude-hub.cn/wallpaper"
   }
 }

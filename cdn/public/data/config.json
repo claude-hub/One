@@ -3,7 +3,7 @@
   "msg": "success",
   "data": {
     "version": "1.0.0",
-    "apiPrefix": "http://cdn.claude-hub.cn",
-    "imgPrefix": "http://cdn.claude-hub.cn/wallpaper"
+    "apiPrefix": "https://cdn.claude-hub.cn",
+    "imgPrefix": "https://cdn.claude-hub.cn/wallpaper"
   }
 }

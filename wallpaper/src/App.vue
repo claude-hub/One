@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useConfigStore, useThemeStore } from '@/store'
 import { onLaunch } from '@dcloudio/uni-app'
+import { loading } from './utils'
 
 const themeStore = useThemeStore()
 const globalConfig = useConfigStore()
@@ -13,13 +14,10 @@ onLaunch(async () => {
       backgroundColor: 'transparent',
     })
 
-    uni.showLoading({
-      title: '加载中...',
-      mask: true,
-    })
+    loading.show()
     await globalConfig.fetchConfig()
   } finally {
-    uni.hideLoading()
+    loading.hide()
   }
 })
 </script>

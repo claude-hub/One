@@ -22,6 +22,7 @@
 </template>
 
 <script lang="ts" setup>
+import { loading } from '@/utils'
 import { onLoad } from '@dcloudio/uni-app'
 import { ref } from 'vue'
 
@@ -51,9 +52,7 @@ const goBack = () => {
 }
 
 const saveImage = () => {
-  uni.showLoading({
-    title: '保存中...',
-  })
+  loading.show('保存中...')
 
   uni.downloadFile({
     url: url.value,
@@ -77,7 +76,7 @@ const saveImage = () => {
       }
     },
     complete: () => {
-      uni.hideLoading()
+      loading.hide()
     },
   })
 }

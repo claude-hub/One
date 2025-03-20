@@ -26,7 +26,6 @@ defineOptions({
 const fullSrc = computed(() => {
   // 直接获取 imgPrefix 的值而不是响应式对象
   const cdnPrefix = imgPrefix.value || ''
-
   return props.src.startsWith('http') || props.src.startsWith('data:')
     ? props.src
     : cdnPrefix + props.src

@@ -29,9 +29,10 @@
 </template>
 
 <script lang="ts" setup>
+import MyImg from '@/components/my-img/index.vue'
 import { getCategoryData } from '@/service'
 import { useCategoriesStore } from '@/store'
-import { goToDetail } from '@/utils'
+import { goToDetail, loading } from '@/utils'
 import { onLoad } from '@dcloudio/uni-app'
 
 const categoriesStore = useCategoriesStore()
@@ -47,7 +48,7 @@ watch(
 )
 const init = async () => {
   try {
-    uni.showLoading({ title: '加载中...', mask: true })
+    loading.show()
     const { data } = await getCategoryData()
     console.log(data)
     if (!data.length) return
@@ -58,7 +59,7 @@ const init = async () => {
       icon: 'none',
     })
   } finally {
-    uni.hideLoading()
+    loading.hide()
   }
 }
 

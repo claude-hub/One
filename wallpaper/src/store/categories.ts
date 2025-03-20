@@ -1,5 +1,6 @@
 import { getCategoryData } from '@/service'
 import { CategoryData } from '@/types'
+import { loading } from '@/utils'
 import { defineStore } from 'pinia'
 
 // 定义分类状态类型
@@ -26,7 +27,7 @@ export const useCategoriesStore = defineStore('categories', {
 
     async fetchCategories() {
       try {
-        uni.showLoading({ title: '加载中...', mask: true })
+        loading.show()
         const { data } = await getCategoryData()
         this.setCategories(data)
       } catch (error) {
@@ -35,7 +36,7 @@ export const useCategoriesStore = defineStore('categories', {
           icon: 'none',
         })
       } finally {
-        uni.hideLoading()
+        loading.hide()
       }
     },
   },

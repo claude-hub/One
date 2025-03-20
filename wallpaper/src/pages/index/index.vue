@@ -92,11 +92,12 @@
 <script lang="ts" setup>
 import CommonTitle from '@/components/common-title/index.vue'
 import LoadMore from '@/components/load-more/index.vue'
+import MyImg from '@/components/my-img/index.vue'
 import ScrollTags from '@/components/scroll-tags/index.vue'
 import { getDailyImages, getHomeData, getTagPaths } from '@/service'
 import { useConfigStore } from '@/store'
 import { HomeData } from '@/types'
-import { goPreview, goToDetail } from '@/utils'
+import { goPreview, goToDetail, loading } from '@/utils'
 import { onPageScroll, onReachBottom } from '@dcloudio/uni-app'
 import { storeToRefs } from 'pinia'
 
@@ -127,7 +128,7 @@ const banners = computed(() => {
 
 const init = async () => {
   try {
-    uni.showLoading({ title: '加载中...', mask: true })
+    loading.show()
     await run()
 
     if (!data.value?.more?.categories?.length) return
@@ -135,7 +136,7 @@ const init = async () => {
     const { data: latestData } = await getTagPaths(path)
     paths.value = latestData
   } finally {
-    uni.hideLoading()
+    loading.hide()
   }
 }
 

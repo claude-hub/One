@@ -28,9 +28,10 @@
 </template>
 
 <script lang="ts" setup>
+import MyImg from '@/components/my-img/index.vue'
 import { getDetails } from '@/service'
 import { ImageCollection } from '@/types'
-import { goPreview } from '@/utils'
+import { goPreview, loading } from '@/utils'
 import { onLoad } from '@dcloudio/uni-app'
 import { ref } from 'vue'
 
@@ -38,7 +39,7 @@ const detail = ref<ImageCollection>()
 
 const init = async (url: string) => {
   try {
-    uni.showLoading({ title: '加载中...', mask: true })
+    loading.show()
     const { data } = await getDetails(url)
     detail.value = data
   } catch (error) {
@@ -47,7 +48,7 @@ const init = async (url: string) => {
       icon: 'none',
     })
   } finally {
-    uni.hideLoading()
+    loading.hide()
   }
 }
 

@@ -54,6 +54,7 @@ export default defineConfig({
       // 背景色
       bg: {
         100: 'var(--bg-100)',
+        200: 'var(--bg-200)',
       },
     },
   },

@@ -9,20 +9,19 @@
 
 <template>
   <div class="font-medium text-center">{{ detail?.name }}</div>
+  <!-- <wd-tag mark v-for="tag in detail?.tags">{{ tag }}</wd-tag> -->
 
-  <wd-tag mark v-for="tag in detail?.tags">{{ tag }}</wd-tag>
-
-  <div class="mt-6 grid grid-cols-3 gap-3" v-if="detail?.images.length">
+  <div
+    class="mt-6 grid gap-3"
+    :class="{
+      'grid-cols-3': url.includes('手机'),
+      'grid-cols-1': url.includes('壁纸'),
+      'grid-cols-2': url.includes('头像'),
+    }"
+    v-if="detail?.images.length"
+  >
     <div v-for="(img, index) in detail.images" :key="index" @click="goPreview(img)">
-      <my-img
-        lazy-load
-        width="100%"
-        :height="366"
-        mode="aspectFill"
-        :src="img"
-        :radius="12"
-        class="w-full"
-      ></my-img>
+      <my-img lazy-load width="100%" mode="widthFix" :src="img" :radius="12"></my-img>
     </div>
   </div>
 </template>
@@ -36,6 +35,7 @@ import { onLoad } from '@dcloudio/uni-app'
 import { ref } from 'vue'
 
 const detail = ref<ImageCollection>()
+const url = ref<string>('')
 
 const init = async (url: string) => {
   try {
@@ -54,6 +54,7 @@ const init = async (url: string) => {
 
 // 页面加载时获取 url 参数
 onLoad((options: { url: string }) => {
+  url.value = options.url
   init(options.url)
 })
 </script>

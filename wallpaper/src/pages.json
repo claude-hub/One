@@ -37,6 +37,12 @@
         "selectedIconPath": "static/tabbar/center_art.png",
         "pagePath": "pages/category/index",
         "text": "分类"
+      },
+      {
+        "iconPath": "static/tabbar/wd.png",
+        "selectedIconPath": "static/tabbar/wd_art.png",
+        "pagePath": "pages/user/index",
+        "text": "我的"
       }
     ]
   },
@@ -46,6 +52,13 @@
       "type": "home",
       "style": {
         "navigationBarTitleText": "首页"
+      }
+    },
+    {
+      "path": "pages/about/index",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "关于作者"
       }
     },
     {
@@ -69,6 +82,14 @@
       "layout": "none",
       "style": {
         "navigationBarTitleText": "预览"
+      }
+    },
+    {
+      "path": "pages/user/index",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "我的"
       }
     }
   ],

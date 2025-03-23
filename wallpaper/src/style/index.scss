@@ -1,6 +1,7 @@
 :root,
 page {
   --bg-100: #ffffff;
+  --bg-200: #ebebeb;
   // 按钮主题色
   --wot-color-theme: #50aa46;
 
@@ -18,6 +19,7 @@ page {
 // 深色主题
 .dark {
   --bg-100: #0a0a0a;
+  --bg-200: #1b1b1b;
 
   .bg-page {
     background: transparent;

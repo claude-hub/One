@@ -41,6 +41,12 @@ export default defineUniPages({
         pagePath: 'pages/category/index',
         text: '分类',
       },
+      {
+        iconPath: 'static/tabbar/wd.png',
+        selectedIconPath: 'static/tabbar/wd_art.png',
+        pagePath: 'pages/user/index',
+        text: '我的',
+      },
     ],
   },
 })

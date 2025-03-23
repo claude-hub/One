@@ -200,10 +200,10 @@ export const TABBAR = [
   //   pagePath: '/pages/search/index',
   //   text: '发现',
   // },
-  // {
-  //   iconPath: '/static/tabbar/wd.png',
-  //   selectedIconPath: '/static/tabbar/wd_art.png',
-  //   pagePath: '/pages/user/index',
-  //   text: '我的',
-  // },
+  {
+    iconPath: '/static/tabbar/wd.png',
+    selectedIconPath: '/static/tabbar/wd_art.png',
+    pagePath: '/pages/user/index',
+    text: '我的',
+  },
 ]

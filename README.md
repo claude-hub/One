@@ -1,5 +1,7 @@
 ## 一. 环境搭建
 
+java 版本 21
+
 1. 安装 flutter, android studio, xcode, Visual Studio Code, cocoapods
 
 - 升级 ruby
